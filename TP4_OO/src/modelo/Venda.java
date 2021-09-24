@@ -41,8 +41,8 @@ public class Venda {
 
 	@Override
 	public String toString() {
-		return "Venda [\nID da venda = " + idVenda + "\nCliente = " + clienteVenda.getNomeCliente()
-				+ "\nPreço total = " + precoVenda + " reais]";
+		return "\nID da venda = " + idVenda + "\nCliente = " + clienteVenda.getNomeCliente()
+				+ "\nPreço total = " + precoVenda + " reais";
 	}
 
 	public Estoque getEstoqueVenda() {

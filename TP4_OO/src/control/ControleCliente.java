@@ -8,6 +8,8 @@ import test_application.Main;
 
 public class ControleCliente {
 	
+	public static ArrayList<Cliente> clientes;
+	
 	public static void cadastrarCliente() {
 
 		System.out.println("\nDigite o número de clientes que serão cadastrados: ");
@@ -86,4 +88,13 @@ public class ControleCliente {
 		System.out.println("\nCliente totalmente removido\n");
 
 	}
+	
+	public static String[] getNomeCliente() {
+		String[] s = new String[Main.clientes.size()];
+		for(int i=0; i<Main.clientes.size(); i++) {
+			s[i] = Main.clientes.get(i).getNomeCliente();
+		}
+		return s;
+	}
+	
 }

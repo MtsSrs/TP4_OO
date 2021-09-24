@@ -79,9 +79,9 @@ public class ControleVenda {
 			System.out.println("Não foram feitas vendas!\nCadastre uma venda nova ... Retornando ao menu");
 		} else {
 			for (int i = 0; i < Main.vendas.size(); i++) {
-				System.out.print(i + "º - ");
+				System.out.print("\nID Venda - " + i + "\n");
 				System.out.println(Main.vendas.get(i));
-				System.out.println("__");
+				System.out.println("__________________________________________");
 			}
 		}
 
