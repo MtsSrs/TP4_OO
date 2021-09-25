@@ -61,28 +61,40 @@ public class TelaMenu implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
-		if(src == clientes)
+		if(src == clientes) {
 			new TelaCliente().Tela(dados);
+
+		}
 		
-		if(src == pasteis)
+		if(src == pasteis) {
 			JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades "
 					+ "desse botão", null, JOptionPane.INFORMATION_MESSAGE);
+		}
+			
 		
-		if(src == bebidas)
+		if(src == bebidas) {
 			JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades "
 					+ "desse botão", null, JOptionPane.INFORMATION_MESSAGE);
+		}
+			
 		
-		if(src == estabelecimentos)
+		if(src == estabelecimentos) {
 			JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades "
 					+ "desse botão", null, JOptionPane.INFORMATION_MESSAGE);
+		}
+			
 		
-		if(src == vendas)
+		if(src == vendas) {
 			JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades "
 					+ "desse botão", null, JOptionPane.INFORMATION_MESSAGE);
+		}
+			
 		
-		if(src == estoque)
+		if(src == estoque) {
 			JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades "
 					+ "desse botão", null, JOptionPane.INFORMATION_MESSAGE);
+		}
+			
 	}
 	
 }

@@ -8,9 +8,6 @@ import javax.swing.event.ListSelectionListener;
 
 import control.ControleCliente;
 import control.ControleDados;
-import modelo.Cliente;
-
-//btf de tentar colocar só o botão cadastrar, o visualizar vai aparecer ja, o editar e deletar vai ser clicando no nome
 
 public class TelaCliente implements ActionListener, ListSelectionListener{
 	private JFrame janela = new JFrame("Cliente");
@@ -19,8 +16,10 @@ public class TelaCliente implements ActionListener, ListSelectionListener{
 	private JButton cadastrar = new JButton("Cadastrar");
 	private JButton refresh = new JButton("Refresh");
 	private String[] listaNomes = new String [50];
+	private static ControleDados dados;
 	
 	public void Tela(ControleDados d) {
+		dados = d;
 		listaNomes = new ControleCliente(d).getNomeCliente();
 		listaDeClientes = new JList<String>(listaNomes);
 		janela = new JFrame("Clientes");
@@ -28,12 +27,12 @@ public class TelaCliente implements ActionListener, ListSelectionListener{
 		
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
 		titulo.setBounds(120,10,200,30);
-		listaDeClientes.setBounds(20, 50, 350, 120);
+		listaDeClientes.setBounds(20, 50, 350, 230);
 		listaDeClientes.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		listaDeClientes.setVisibleRowCount(10);
 		
-		cadastrar.setBounds(50, 177, 100, 30);
-		refresh.setBounds(250, 177, 100, 30);
+		cadastrar.setBounds(50, 300, 100, 30);
+		refresh.setBounds(250, 300, 100, 30);
 		
 		janela.setLayout(null);
 		
@@ -42,7 +41,7 @@ public class TelaCliente implements ActionListener, ListSelectionListener{
 		janela.add(cadastrar);
 		janela.add(refresh);
 		
-		janela.setSize(400, 250);
+		janela.setSize(400, 400);
 		janela.setVisible(true);
 		
 		cadastrar.addActionListener(this);
@@ -54,19 +53,18 @@ public class TelaCliente implements ActionListener, ListSelectionListener{
 		Object src = e.getSource();
 		
 		if(src == cadastrar)
-			JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades "
-					+ "desse botão", null, JOptionPane.INFORMATION_MESSAGE);
+			new TelaCadastroCliente().cadastrarCliente(dados);
 		
 		if(src == refresh)
-			JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades "
-					+ "desse botão", null, JOptionPane.INFORMATION_MESSAGE);
+			listaDeClientes.setListData(new ControleCliente(dados).getNomeCliente());
+			listaDeClientes.updateUI();
 	}
 	
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 		
 		if(e.getValueIsAdjusting() && src == listaDeClientes) {
-			
+			new TelaCadastroCliente().editarCliente(dados, listaDeClientes.getSelectedIndex());
 		}
 	}
 }

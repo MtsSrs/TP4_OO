@@ -39,5 +39,5 @@ public class ControleDados {
 		return this.d.getVendas();
 	}
 	
-	
+
 }
