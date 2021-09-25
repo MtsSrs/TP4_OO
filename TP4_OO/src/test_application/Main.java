@@ -68,8 +68,6 @@ public class Main {
 		vendas.add(new Venda(1, clientes.get(0), (float) 13.44));
 		vendas.add(new Venda(2, clientes.get(1), (float) 44.13));
 		
-		ControleCliente.getNomeCliente();
-
 		mensagemBoasVindas();
 
 		do {

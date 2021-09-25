@@ -5,10 +5,17 @@ import java.util.ArrayList;
 import modelo.Cliente;
 import modelo.Telefone;
 import test_application.Main;
+import view.TelaMenu;
+import modelo.Dados;
 
 public class ControleCliente {
 	
-	public static ArrayList<Cliente> clientes;
+	private ArrayList<Cliente> c;
+	
+	public ControleCliente(ControleDados d) {
+		c = d.getClientes();
+	}
+	
 	
 	public static void cadastrarCliente() {
 
@@ -89,12 +96,13 @@ public class ControleCliente {
 
 	}
 	
-	public static String[] getNomeCliente() {
-		String[] s = new String[Main.clientes.size()];
-		for(int i=0; i<Main.clientes.size(); i++) {
-			s[i] = Main.clientes.get(i).getNomeCliente();
+	public String[] getNomeCliente() {
+		String[] s = new String[this.c.size()];
+		for(int i=0; i<this.c.size(); i++) {
+			s[i] = c.get(i).getNomeCliente();
 		}
 		return s;
 	}
+	
 	
 }

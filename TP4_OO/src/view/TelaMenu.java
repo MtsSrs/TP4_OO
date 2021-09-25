@@ -2,7 +2,13 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+
 import javax.swing.*;
+
+import control.ControleDados;
+import modelo.Cliente;
+import modelo.Telefone;
 
 public class TelaMenu implements ActionListener{
 	
@@ -14,6 +20,7 @@ public class TelaMenu implements ActionListener{
 	private static JButton estabelecimentos = new JButton("Estabelecimentos");
 	private static JButton vendas = new JButton("Vendas");
 	private static JButton estoque = new JButton("Estoque");
+	public static ControleDados dados = new ControleDados();
 	
 	public TelaMenu() {
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
@@ -55,8 +62,7 @@ public class TelaMenu implements ActionListener{
 		Object src = e.getSource();
 		
 		if(src == clientes)
-			JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades "
-					+ "desse botão", null, JOptionPane.INFORMATION_MESSAGE);
+			new TelaCliente().Tela(dados);
 		
 		if(src == pasteis)
 			JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades "
