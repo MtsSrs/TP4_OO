@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import modelo.Cliente;
 import modelo.Telefone;
 import test_application.Main;
-import view.TelaMenu;
-import modelo.Dados;
 
 public class ControleCliente {
 	

@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
@@ -70,7 +69,6 @@ public class TelaCadastroCliente implements ActionListener{
 		
 		novoCliente = new Cliente(this.valorNome.getText(), this.valorEndereco.getText(), 
 				this.valorCpf.getText(), new Telefone(this.valorDdd.getText(), this.valorNumero.getText()));
-		d.getClientes().add(novoCliente);
 	}
 	
 	public void editarCliente(ControleDados d, int pos) {

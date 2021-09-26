@@ -6,6 +6,20 @@ import modelo.Pastel;
 import test_application.Main;
 
 public class ControlePastel {
+	private ArrayList<Pastel> c;
+
+    public ControlePastel(ControleDados d) {
+        c = d.getPasteis();
+    }
+	
+    public String[] getNomePastel() {
+        String[] s = new String[this.c.size()];
+        for(int i=0; i<this.c.size(); i++) {
+            s[i] = c.get(i).getNomeProduto();
+        }
+        return s;
+    }
+    
 	public static void cadastrarPastel() {
 		System.out.println("Digite o número de pasteis que serão cadastrados");
 		int size = Main.sc.nextInt();

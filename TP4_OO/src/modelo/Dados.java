@@ -63,7 +63,7 @@ public void bancoDados() {
             "Salgado", "10");
     Pastel Carne = new Pastel("Pastel de carne pequeno", (float) 13.99, 2, "Pastel recheado com carne", "149",
             "Salgado", "10");
-    Pastel Chocolate = new Pastel("Pastel de chocolate médio", (float) 15.99, 3, "Pastel recheado com carne", "250",
+    Pastel Chocolate = new Pastel("Pastel de chocolate médio", (float) 15.99, 3, "Pastel recheado com chocolate", "250",
             "Doce", "15");
 
     Estabelecimento Brasilia = new Estabelecimento("Brasília", "11111111", new Telefone("61", "111112222"));

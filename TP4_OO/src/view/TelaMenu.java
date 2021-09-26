@@ -2,13 +2,9 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
-
 import javax.swing.*;
 
 import control.ControleDados;
-import modelo.Cliente;
-import modelo.Telefone;
 
 public class TelaMenu implements ActionListener{
 	
@@ -67,8 +63,7 @@ public class TelaMenu implements ActionListener{
 		}
 		
 		if(src == pasteis) {
-			JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades "
-					+ "desse botão", null, JOptionPane.INFORMATION_MESSAGE);
+			new TelaPastel().TelaMostraPastel(dados);
 		}
 			
 		
