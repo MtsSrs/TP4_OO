@@ -6,6 +6,21 @@ import modelo.Bebida;
 import test_application.Main;
 
 public class ControleBebida {
+	private ArrayList<Bebida> c;
+	
+	 public ControleBebida(ControleDados d) {
+	        c = d.getBebidas();
+	    }
+		
+	
+	public String[] getNomeBebida() {
+        String[] s = new String[this.c.size()];
+        for(int i=0; i<this.c.size(); i++) {
+            s[i] = c.get(i).getNomeProduto();
+        }
+        return s;
+    }
+	
 	public static void cadastrarBebida() {
 		System.out.println("Digite o número de bebidas que serão cadastadas");
 		int size = Main.sc.nextInt();

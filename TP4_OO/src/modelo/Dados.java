@@ -65,6 +65,11 @@ public void bancoDados() {
             "Salgado", "10");
     Pastel Chocolate = new Pastel("Pastel de chocolate médio", (float) 15.99, 3, "Pastel recheado com chocolate", "250",
             "Doce", "15");
+    
+    bebidas.add(new Bebida("Água", (float) 4.99, 1, "Uma garrafa de água", "0", "Água", "500"));
+	bebidas.add(new Bebida("Coca-cola", (float) 7.99, 2, "Uma lata de Coca-cola", "85", "Refrigerante", "300"));
+	bebidas.add(new Bebida("Coca-cola light", (float) 7.99, 3, "Uma lata de Coca-cola light", "2", "Refrigerante",
+			"300"));
 
     Estabelecimento Brasilia = new Estabelecimento("Brasília", "11111111", new Telefone("61", "111112222"));
     Estabelecimento Valparaiso = new Estabelecimento("Valparaíso", "22222222", new Telefone("61", "222221111"));

@@ -68,8 +68,7 @@ public class TelaMenu implements ActionListener{
 			
 		
 		if(src == bebidas) {
-			JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades "
-					+ "desse botão", null, JOptionPane.INFORMATION_MESSAGE);
+			new TelaBebida().TelaMostraBebida(dados);
 		}
 			
 		
