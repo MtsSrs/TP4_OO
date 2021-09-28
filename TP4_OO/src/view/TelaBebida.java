@@ -16,7 +16,7 @@ import control.ControleBebida;
 import control.ControleDados;
 
 public class TelaBebida implements ActionListener, ListSelectionListener {
-	private JFrame janela = new JFrame("Bebidass");
+	private JFrame janela = new JFrame("Bebidas");
 	private JLabel titulo = new JLabel("Lista de bebidas");
 	private JList<String> listaDeBebidas;
 	private JButton cadastrar = new JButton("Cadastrar");

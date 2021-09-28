@@ -27,9 +27,10 @@ public class TelaCliente implements ActionListener, ListSelectionListener {
 
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
 		titulo.setBounds(120, 10, 200, 30);
-		listaDeClientes.setBounds(20, 50, 350, 230);
+		listaDeClientes.setBounds(20, 50, 350, 100);
 		listaDeClientes.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-		listaDeClientes.setVisibleRowCount(10);
+		listaDeClientes.setVisibleRowCount(-1);
+		listaDeClientes.setLayoutOrientation(JList.VERTICAL_WRAP);
 
 		cadastrar.setBounds(50, 300, 100, 30);
 		refresh.setBounds(250, 300, 100, 30);
@@ -47,6 +48,7 @@ public class TelaCliente implements ActionListener, ListSelectionListener {
 		cadastrar.addActionListener(this);
 		refresh.addActionListener(this);
 		listaDeClientes.addListSelectionListener(this);
+		
 	}
 
 	public void actionPerformed(ActionEvent e) {

@@ -77,14 +77,12 @@ public void bancoDados() {
     this.getClientes().add(Mateus);
     this.getClientes().add(Matheus);
    
-    
-    Venda Venda1 = new Venda(1, clientes.get(0), (float) 13.44);
-    Venda Venda2 = new Venda(2, clientes.get(1), (float) 44.13);
-    
-    
     this.getPasteis().add(Queijo);
     this.getPasteis().add(Carne);
     this.getPasteis().add(Chocolate);
+    
+    Venda Venda1 = new Venda(0, clientes.get(0), (float) 18.98, pasteis.get(0), bebidas.get(0));
+    Venda Venda2 = new Venda(1, clientes.get(1), (float) 21.98, pasteis.get(1), bebidas.get(1));
     
     this.getEstabelecimentos().add(Brasilia);
     this.getEstabelecimentos().add(Valparaiso);

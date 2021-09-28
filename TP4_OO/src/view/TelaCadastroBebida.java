@@ -38,7 +38,7 @@ public class TelaCadastroBebida implements ActionListener {
 	public void cadastrarBebida(ControleDados d) {
 		dados = d;
 
-		janela = new JFrame("Cadastro de novo Pastel");
+		janela = new JFrame("Cadastro de nova bebida");
 
 		valorNome = new JTextField(200);
 		valorPreco = new JTextField(200);
@@ -101,7 +101,7 @@ public class TelaCadastroBebida implements ActionListener {
 		dados = d;
 		position = pos;
 
-		janela = new JFrame("Editar cliente");
+		janela = new JFrame("Editar bebida");
 
 		valorNome = new JTextField(d.getBebidas().get(pos).getNomeProduto(), 200);
 		valorPreco = new JTextField(String.valueOf(d.getBebidas().get(pos).getPrecoProduto()), 200);

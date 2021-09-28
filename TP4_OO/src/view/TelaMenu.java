@@ -73,14 +73,13 @@ public class TelaMenu implements ActionListener{
 			
 		
 		if(src == estabelecimentos) {
-			JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades "
-					+ "desse botão", null, JOptionPane.INFORMATION_MESSAGE);
-		}
+            new TelaEstabelecimento().TelaMostraEstabelecimento(dados);
+        }
 			
 		
 		if(src == vendas) {
-			JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades "
-					+ "desse botão", null, JOptionPane.INFORMATION_MESSAGE);
+
+			new TelaVenda().TelaMostraVenda(dados);
 		}
 			
 		

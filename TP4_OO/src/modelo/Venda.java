@@ -7,11 +7,16 @@ public class Venda {
 	private Cliente clienteVenda;
 	private Estoque estoqueVenda;
 	private float precoVenda;
+	private Pastel pastelVenda;
+	private Bebida bebidaVenda;
 
-	public Venda(int idVenda, Cliente clienteVenda, float precoVenda) {
+	public Venda(int idVenda, Cliente clienteVenda, float precoVenda, Pastel pastelVenda, Bebida bebidaVenda) {
 		this.idVenda = idVenda;
 		this.clienteVenda = clienteVenda;
 		this.precoVenda = precoVenda;
+		this.pastelVenda = pastelVenda;
+		this.bebidaVenda = bebidaVenda;
+		
 	}
 
 	public int getIdVenda() {
@@ -38,6 +43,21 @@ public class Venda {
 		this.precoVenda = precoVenda;
 	}
 
+	public Pastel getPastelVenda() {
+		return pastelVenda;
+	}
+
+	public void setPastelVenda(Pastel pastelVenda) {
+		this.pastelVenda = pastelVenda;
+	}
+
+	public Bebida getBebidaVenda() {
+		return bebidaVenda;
+	}
+
+	public void setBebidaVenda(Bebida bebidaVenda) {
+		this.bebidaVenda = bebidaVenda;
+	}
 
 	@Override
 	public String toString() {
