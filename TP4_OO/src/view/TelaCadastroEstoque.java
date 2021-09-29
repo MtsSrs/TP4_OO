@@ -20,12 +20,16 @@ private JLabel labelPrecoProduto = new JLabel("Preco(R$): ");
 private JTextField valorPreco;
 private JLabel labelQtdProduto = new JLabel("Quantidade(Un.): ");
 private JTextField valorQtdProduto;
-private JButton adicionar = new JButton("Adicionar");
-private JButton zerar = new JButton("Zerar");
-private JButton confirmar = new JButton("Confirmar");
+private JButton adicionarPastel = new JButton("Adicionar");
+private JButton zerarPastel = new JButton("Zerar");
+private JButton confirmarPastel = new JButton("Confirmar");
+private JButton adicionarBebida = new JButton("Adicionar");
+private JButton confirmarBebida = new JButton("Confirmar");
+private JButton zerarBebida = new JButton("Zerar");
 private static ControleDados dados;
 private int position;
 private int setQtd;
+private int selecao;
 private Pastel pastel;
 private Bebida bebida;
 
@@ -48,8 +52,8 @@ public void estoqueMostraPastel(ControleDados d, int pos) {
 	labelQtdProduto.setBounds(10, 110, 100, 25);
 	labelQtdProdutoPastel.setBounds(110, 110, 250, 25);
 	
-	adicionar.setBounds(20, 170, 115, 30);
-	zerar.setBounds(245, 170, 115, 30);
+	adicionarPastel.setBounds(20, 170, 115, 30);
+	zerarPastel.setBounds(245, 170, 115, 30);
 	
 	this.janela.add(labelNomeProduto);
 	this.janela.add(labelNomeProdutoPastel);
@@ -57,23 +61,65 @@ public void estoqueMostraPastel(ControleDados d, int pos) {
 	this.janela.add(labelPrecoProdutoPastel);
 	this.janela.add(labelQtdProduto);
 	this.janela.add(labelQtdProdutoPastel);
-	this.janela.add(adicionar);
-	this.janela.add(zerar);
+	this.janela.add(adicionarPastel);
+	this.janela.add(zerarPastel);
 	
 	this.janela.setLayout(null);
 	
 	this.janela.setSize(400, 250);
 	this.janela.setVisible(true);
 	
-	zerar.addActionListener(this);
-	adicionar.addActionListener(this);
+	zerarPastel.addActionListener(this);
+	adicionarPastel.addActionListener(this);
 	
 }
 
-public void adicionaEstoque(ControleDados d, int pos) {
+public void estoqueMostraBebida(ControleDados d, int pos){
 	dados = d;
 	position = pos;
 	
+	janela = new JFrame("Dados de estoque");
+	
+	JLabel labelNomeProdutoBebida = new JLabel("" + dados.getBebidas().get(pos).getNomeProduto()); 
+	JLabel labelPrecoProdutoBebida = new JLabel("" + dados.getBebidas().get(pos).getPrecoProduto());
+	JLabel labelQtdProdutoBebida = new JLabel("" + dados.getBebidas().get(pos).getQtdBebida());
+	
+	labelNomeProduto.setBounds(10, 10, 100, 25);
+	labelNomeProdutoBebida.setBounds(50, 10, 250, 25);
+	
+	labelPrecoProduto.setBounds(10, 60, 100, 25);
+	labelPrecoProdutoBebida.setBounds(75, 60, 250, 25);
+	
+	labelQtdProduto.setBounds(10, 110, 100, 25);
+	labelQtdProdutoBebida.setBounds(110, 110, 250, 25);
+	
+	adicionarBebida.setBounds(20, 170, 115, 30);
+	zerarBebida.setBounds(245, 170, 115, 30);
+	
+	this.janela.add(labelNomeProduto);
+	this.janela.add(labelNomeProdutoBebida);
+	this.janela.add(labelPrecoProduto);
+	this.janela.add(labelPrecoProdutoBebida);
+	this.janela.add(labelQtdProduto);
+	this.janela.add(labelQtdProdutoBebida);
+	this.janela.add(adicionarBebida);
+	this.janela.add(zerarBebida);
+	
+	this.janela.setLayout(null);
+	
+	this.janela.setSize(400, 250);
+	this.janela.setVisible(true);
+	
+	zerarBebida.addActionListener(this);
+	adicionarBebida.addActionListener(this);
+}
+
+public void adicionaEstoque(ControleDados d, int pos, int selecaoProduto) {
+	dados = d;
+	position = pos;
+	selecao = selecaoProduto;
+	
+	if(selecao == 1) {
 	janela = new JFrame("Adicionar novo Estoque");
 	
 	valorQtdProduto = new JTextField(200);
@@ -83,7 +129,7 @@ public void adicionaEstoque(ControleDados d, int pos) {
 	
 	
 			
-	confirmar.setBounds(245, 50, 115, 30);
+	confirmarPastel.setBounds(245, 50, 115, 30);
 	
 	this.janela.setLayout(null);
 	
@@ -92,32 +138,67 @@ public void adicionaEstoque(ControleDados d, int pos) {
 	
 	this.janela.add(labelQtdProduto);
 	this.janela.add(valorQtdProduto);
-	this.janela.add(confirmar);
+	this.janela.add(confirmarPastel);
 	
-	confirmar.addActionListener(this);
-}
+	confirmarPastel.addActionListener(this);
+	}
 	
-public void estoqueMostraBebida(ControleDados d) {
-	
-	
+	if (selecao == 2) {
+		janela = new JFrame("Adicionar novo Estoque");
+		
+		valorQtdProduto = new JTextField(200);
+		
+		labelQtdProduto.setBounds(10, 10, 100, 25);
+		valorQtdProduto.setBounds(110, 10, 250, 25);
+		
+		
+				
+		confirmarBebida.setBounds(245, 50, 115, 30);
+		
+		this.janela.setLayout(null);
+		
+		this.janela.setSize(400,130);
+		this.janela.setVisible(true);
+		
+		this.janela.add(labelQtdProduto);
+		this.janela.add(valorQtdProduto);
+		this.janela.add(confirmarBebida);
+		
+		confirmarBebida.addActionListener(this);
+	}
 }
 
 public void actionPerformed(ActionEvent e) {
 	Object src = e.getSource();
-	if(src == adicionar) {
-		new TelaCadastroEstoque().adicionaEstoque(dados, position);
+	if(src == adicionarPastel) {
+		new TelaCadastroEstoque().adicionaEstoque(dados, position, 1);
 		janela.dispose();
 	}
-	if(src == zerar) {
+	if(src == zerarPastel) {
 		dados.getPasteis().get(position).setQtdPastel(0);
 		janela.dispose();
 	}
-	if(src == confirmar) {
+	if(src == confirmarPastel) {
 		setQtd = Integer.parseInt(valorQtdProduto.getText());
 		dados.getPasteis().get(position).setQtdPastel(setQtd + dados.getPasteis().get(position).getQtdPastel());
 		janela.dispose();
 	}
+	
+	if(src == adicionarBebida) {
+		new TelaCadastroEstoque().adicionaEstoque(dados, position, 2);
+		janela.dispose();
+	}
+	
+	if(src == zerarBebida) {
+		dados.getBebidas().get(position).setQtdBebida(0);
+		janela.dispose();
+	}
+	
+	if(src == confirmarBebida) {
+		setQtd = Integer.parseInt(valorQtdProduto.getText());
+		dados.getBebidas().get(position).setQtdBebida(setQtd + dados.getBebidas().get(position).getQtdBebida());
+		janela.dispose();
+	}
 }
 
-	
 }

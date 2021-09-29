@@ -114,8 +114,7 @@ public class TelaEstoque implements ActionListener, ListSelectionListener {
 			new TelaCadastroEstoque().estoqueMostraPastel(dados, listaDePasteis.getSelectedIndex());
 		}
 		if (e.getValueIsAdjusting() && src == listaDeBebidas) {
-			JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades " + "desse botão",
-					null, JOptionPane.INFORMATION_MESSAGE);
+			new TelaCadastroEstoque().estoqueMostraBebida(dados, listaDeBebidas.getSelectedIndex());
 		}
 	}
 

@@ -237,23 +237,62 @@ public class TelaCadastroVenda implements ActionListener, ListSelectionListener 
         if(src == cadastrar) {
         	qtdPasteis = Integer.parseInt(valorQtdPastel.getText());
     		qtdBebidas = Integer.parseInt(valorQtdBebida.getText());
-        	novaVenda = new Venda(dados.getVendas().size(), dados.getClientes().get(clienteSelecionado), 
-        			(qtdPasteis*dados.getPasteis().get(pastelSelecionado).getPrecoProduto()+
-        			 qtdBebidas*dados.getBebidas().get(bebidaSelecionada).getPrecoProduto()), dados.getPasteis().get(pastelSelecionado),
-        			 dados.getBebidas().get(bebidaSelecionada));
-            dados.getVendas().add(novaVenda);
-            janela.dispose();
+    		if ((dados.getPasteis().get(pastelSelecionado).getQtdPastel() - qtdPasteis) >= 0) {
+    			dados.getPasteis().get(pastelSelecionado).setQtdPastel(dados.getPasteis().get(pastelSelecionado).getQtdPastel() - qtdPasteis);
+                dados.getBebidas().get(bebidaSelecionada).setQtdBebida(dados.getBebidas().get(bebidaSelecionada).getQtdBebida() - qtdBebidas);
+        		novaVenda = new Venda(dados.getVendas().get(position).getIdVenda(), dados.getClientes().get(clienteSelecionado), 
+            			(qtdPasteis*dados.getPasteis().get(pastelSelecionado).getPrecoProduto()+
+            			 qtdBebidas*dados.getBebidas().get(bebidaSelecionada).getPrecoProduto()), dados.getPasteis().get(pastelSelecionado),
+            			 dados.getBebidas().get(bebidaSelecionada));
+            	dados.getVendas().add(novaVenda);
+            	janela.dispose();
+    		} else {
+    			MensagemErroPastel();
+    		}
+    		
+    		if((dados.getBebidas().get(bebidaSelecionada).getQtdBebida() - qtdBebidas) >= 0){
+    			dados.getPasteis().get(pastelSelecionado).setQtdPastel(dados.getPasteis().get(pastelSelecionado).getQtdPastel() - qtdPasteis);
+                dados.getBebidas().get(bebidaSelecionada).setQtdBebida(dados.getBebidas().get(bebidaSelecionada).getQtdBebida() - qtdBebidas);
+        		novaVenda = new Venda(dados.getVendas().get(position).getIdVenda(), dados.getClientes().get(clienteSelecionado), 
+            			(qtdPasteis*dados.getPasteis().get(pastelSelecionado).getPrecoProduto()+
+            			 qtdBebidas*dados.getBebidas().get(bebidaSelecionada).getPrecoProduto()), dados.getPasteis().get(pastelSelecionado),
+            			 dados.getBebidas().get(bebidaSelecionada));
+            	dados.getVendas().add(novaVenda);
+            	janela.dispose();
+    		} else {
+    			MensagemErroBebida();
+    		}
+    		
         }
         
         if(src == confirmar) {
         	qtdPasteis = Integer.parseInt(valorQtdPastel.getText());
     		qtdBebidas = Integer.parseInt(valorQtdBebida.getText());
-        	novaVenda = new Venda(dados.getVendas().get(position).getIdVenda(), dados.getClientes().get(clienteSelecionado), 
-        			(qtdPasteis*dados.getPasteis().get(pastelSelecionado).getPrecoProduto()+
-        			 qtdBebidas*dados.getBebidas().get(bebidaSelecionada).getPrecoProduto()), dados.getPasteis().get(pastelSelecionado),
-        			 dados.getBebidas().get(bebidaSelecionada));
-        	dados.getVendas().set(position, novaVenda);
-        	janela.dispose();
+    		if ((dados.getPasteis().get(pastelSelecionado).getQtdPastel() - qtdPasteis) >= 0) {
+    			dados.getPasteis().get(pastelSelecionado).setQtdPastel(dados.getPasteis().get(pastelSelecionado).getQtdPastel() - qtdPasteis);
+                dados.getBebidas().get(bebidaSelecionada).setQtdBebida(dados.getBebidas().get(bebidaSelecionada).getQtdBebida() - qtdBebidas);
+        		novaVenda = new Venda(dados.getVendas().get(position).getIdVenda(), dados.getClientes().get(clienteSelecionado), 
+            			(qtdPasteis*dados.getPasteis().get(pastelSelecionado).getPrecoProduto()+
+            			 qtdBebidas*dados.getBebidas().get(bebidaSelecionada).getPrecoProduto()), dados.getPasteis().get(pastelSelecionado),
+            			 dados.getBebidas().get(bebidaSelecionada));
+            	dados.getVendas().set(position, novaVenda);
+            	janela.dispose();
+    		} else {
+    			MensagemErroPastel();
+    		}
+    		
+    		if((dados.getBebidas().get(bebidaSelecionada).getQtdBebida() - qtdBebidas) >= 0){
+    			dados.getPasteis().get(pastelSelecionado).setQtdPastel(dados.getPasteis().get(pastelSelecionado).getQtdPastel() - qtdPasteis);
+                dados.getBebidas().get(bebidaSelecionada).setQtdBebida(dados.getBebidas().get(bebidaSelecionada).getQtdBebida() - qtdBebidas);
+        		novaVenda = new Venda(dados.getVendas().get(position).getIdVenda(), dados.getClientes().get(clienteSelecionado), 
+            			(qtdPasteis*dados.getPasteis().get(pastelSelecionado).getPrecoProduto()+
+            			 qtdBebidas*dados.getBebidas().get(bebidaSelecionada).getPrecoProduto()), dados.getPasteis().get(pastelSelecionado),
+            			 dados.getBebidas().get(bebidaSelecionada));
+            	dados.getVendas().add(novaVenda);
+            	janela.dispose();
+    		} else {
+    			MensagemErroBebida();
+    		}
         }
         
         if(src == deletar) {
@@ -281,5 +320,17 @@ public class TelaCadastroVenda implements ActionListener, ListSelectionListener 
 		if (e.getValueIsAdjusting() && src == listaDeBebidas) {
 			bebidaSelecionada = listaDeBebidas.getSelectedIndex();
 		}
+	}
+   
+    public void MensagemErroPastel() {
+		JOptionPane.showMessageDialog(null,
+				"Ocorreu um erro ao cadastrar a venda.\n" + "- Não há estoque suficiente do pastel selecionado!\n",
+				null, JOptionPane.ERROR_MESSAGE);
+	}
+    
+    public void MensagemErroBebida() {
+		JOptionPane.showMessageDialog(null,
+				"Ocorreu um erro ao cadastrar a venda.\n" + "- Não há estoque suficiente da bebida selecionada!\n",
+				null, JOptionPane.ERROR_MESSAGE);
 	}
 }
