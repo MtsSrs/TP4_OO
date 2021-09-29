@@ -1,15 +1,16 @@
 package modelo;
 
-
 public class Bebida extends Produto {
 	private String tipoBebida;
 	private String volumeBebida;
+	private int qtdBebida;
 
 	public Bebida(String nomeProduto, float precoProduto, int idProduto, String descricaoProduto, String caloriaProduto,
-			String tipoBebida, String volumeBebida) {
+			String tipoBebida, String volumeBebida, int qtdBebida) {
 		super(nomeProduto, precoProduto, idProduto, descricaoProduto, caloriaProduto);
 		this.tipoBebida = tipoBebida;
 		this.volumeBebida = volumeBebida;
+		this.qtdBebida = qtdBebida;
 	}
 
 	public String getTipoBebida() {
@@ -26,6 +27,14 @@ public class Bebida extends Produto {
 
 	public void setVolumeBebida(String volumeBebida) {
 		this.volumeBebida = volumeBebida;
+	}
+
+	public int getQtdBebida() {
+		return qtdBebida;
+	}
+
+	public void setQtdBebida(int qtdBebida) {
+		this.qtdBebida = qtdBebida;
 	}
 
 	@Override

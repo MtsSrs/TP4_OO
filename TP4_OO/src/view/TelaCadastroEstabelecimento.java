@@ -9,7 +9,6 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import control.ControleDados;
-import modelo.Cliente;
 import modelo.Estabelecimento;
 import modelo.Telefone;
 

@@ -3,8 +3,6 @@ package control;
 import java.util.ArrayList;
 
 import modelo.Cliente;
-import modelo.Telefone;
-//import test_application.Main;
 
 public class ControleCliente {
 	

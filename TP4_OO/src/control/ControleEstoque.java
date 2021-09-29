@@ -1,8 +1,23 @@
 package control;
 
+//import java.util.ArrayList;
+//
+//import modelo.Bebida;
+//import modelo.Pastel;
+
 //import test_application.Main;
 
 public class ControleEstoque {
+
+}
+
+//public String[] getQtdPastel() {
+//	int [] s = new int[this.p.size()];
+//	for(int i = 0; i < this.p.size(); i++) {
+//		s[i] = p.get(i;
+//	}
+//	return s;
+//
 //	public static void cadastrarEstoqueProduto() {
 //		System.out.println("\nDigite - 1 - para cadastrar pastéis \nDigite - 2 - para cadastrar bebidas\n");
 //		int num = Main.sc.nextInt();
@@ -153,4 +168,4 @@ public class ControleEstoque {
 //		}
 //		
 //	}
-}
+

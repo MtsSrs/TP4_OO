@@ -4,12 +4,14 @@ package modelo;
 public class Pastel extends Produto {
 	private String saborPastel;
 	private String comprimentoPastel;
+	private int qtdPastel;
 
 	public Pastel(String nomeProduto, float precoProduto, int idProduto, String descricaoProduto, String caloriaProduto,
-			String saborPastel, String comprimentoPastel) {
+			String saborPastel, String comprimentoPastel, int qtdPastel) {
 		super(nomeProduto, precoProduto, idProduto, descricaoProduto, caloriaProduto);
 		this.saborPastel = saborPastel;
 		this.comprimentoPastel = comprimentoPastel;
+		this.qtdPastel = qtdPastel;
 	}
 
 
@@ -28,6 +30,16 @@ public class Pastel extends Produto {
 
 	public void setComprimentoPastel(String comprimentoPastel) {
 		this.comprimentoPastel = comprimentoPastel;
+	}
+
+	public int getQtdPastel() {
+		return qtdPastel;
+	}
+
+
+
+	public void setQtdPastel(int qtdPastel) {
+		this.qtdPastel = qtdPastel;
 	}
 
 	@Override

@@ -28,6 +28,8 @@ public class TelaCadastroBebida implements ActionListener {
 	private JTextField valorVol;
 	private JLabel labelTipoBebida = new JLabel("Tipo: ");
 	private JTextField valorTipoBebida;
+	private JLabel labelQtdBebida = new JLabel("Quantidade(Un.): ");
+	private JTextField valorQtdBebida;
 	private JButton salvar = new JButton("Salvar");
 	private JButton editar = new JButton("Editar");
 	private JButton deletar = new JButton("Deletar");
@@ -47,6 +49,7 @@ public class TelaCadastroBebida implements ActionListener {
 		valorCal = new JTextField(200);
 		valorVol = new JTextField(200);
 		valorTipoBebida = new JTextField(200);
+		valorQtdBebida = new JTextField(200);
 
 		labelNomeBebida.setBounds(10, 60, 100, 25);
 		valorNome.setBounds(110, 60, 250, 25);
@@ -64,12 +67,15 @@ public class TelaCadastroBebida implements ActionListener {
 		valorCal.setBounds(110, 210, 250, 25);
 
 		labelVolBebida.setBounds(10, 260, 120, 25);
-		valorVol.setBounds(140, 260, 220, 25);
+		valorVol.setBounds(110, 260, 250, 25);
 
 		labelTipoBebida.setBounds(10, 310, 150, 25);
-		valorTipoBebida.setBounds(150, 310, 210, 25);
+		valorTipoBebida.setBounds(110, 310, 250, 25);
 
-		salvar.setBounds(245, 350, 115, 30);
+		labelQtdBebida.setBounds(10, 360, 100, 25);
+		valorQtdBebida.setBounds(110, 360, 250, 25);
+		
+		salvar.setBounds(245, 400, 115, 30);
 
 		this.janela.add(labelNomeBebida);
 		this.janela.add(valorNome);
@@ -85,12 +91,14 @@ public class TelaCadastroBebida implements ActionListener {
 		this.janela.add(valorVol);
 		this.janela.add(labelTipoBebida);
 		this.janela.add(valorTipoBebida);
-
+		this.janela.add(labelQtdBebida);
+		this.janela.add(valorQtdBebida);
+		
 		this.janela.add(salvar);
 
 		this.janela.setLayout(null);
 
-		this.janela.setSize(400, 450);
+		this.janela.setSize(400, 500);
 		this.janela.setVisible(true);
 
 		salvar.addActionListener(this);
@@ -110,6 +118,7 @@ public class TelaCadastroBebida implements ActionListener {
 		valorCal = new JTextField(d.getBebidas().get(pos).getCaloriaProduto(), 200);
 		valorVol = new JTextField(d.getBebidas().get(pos).getVolumeBebida(), 200);
 		valorTipoBebida = new JTextField(d.getBebidas().get(pos).getTipoBebida(), 200);
+		valorQtdBebida = new JTextField(String.valueOf(d.getBebidas().get(pos).getQtdBebida()));
 
 		labelNomeBebida.setBounds(10, 60, 100, 25);
 		valorNome.setBounds(110, 60, 250, 25);
@@ -127,13 +136,16 @@ public class TelaCadastroBebida implements ActionListener {
 		valorCal.setBounds(110, 210, 250, 25);
 
 		labelVolBebida.setBounds(10, 260, 120, 25);
-		valorVol.setBounds(140, 260, 220, 25);
+		valorVol.setBounds(110, 260, 250, 25);
 
 		labelTipoBebida.setBounds(10, 310, 150, 25);
-		valorTipoBebida.setBounds(150, 310, 210, 25);
+		valorTipoBebida.setBounds(110, 310, 250, 25);
 
-		editar.setBounds(245, 350, 115, 30);
-		deletar.setBounds(20, 350, 115, 30);
+		labelQtdBebida.setBounds(10,360,150,25);
+		valorQtdBebida.setBounds(110,360, 250, 25);
+		
+		editar.setBounds(245, 400, 115, 30);
+		deletar.setBounds(20, 400, 115, 30);
 
 		this.janela.add(labelNomeBebida);
 		this.janela.add(valorNome);
@@ -149,13 +161,15 @@ public class TelaCadastroBebida implements ActionListener {
 		this.janela.add(valorVol);
 		this.janela.add(labelTipoBebida);
 		this.janela.add(valorTipoBebida);
+		this.janela.add(labelQtdBebida);
+		this.janela.add(valorQtdBebida);
 
 		this.janela.add(editar);
 		this.janela.add(deletar);
 
 		this.janela.setLayout(null);
 
-		this.janela.setSize(400, 450);
+		this.janela.setSize(400, 500);
 		this.janela.setVisible(true);
 
 		editar.addActionListener(this);
@@ -170,7 +184,7 @@ public class TelaCadastroBebida implements ActionListener {
 			try {
 				novaBebida = new Bebida(this.valorNome.getText(), Float.valueOf(this.valorPreco.getText()),
 						Integer.valueOf(this.valorId.getText()), this.valorDesc.getText(), this.valorCal.getText(),
-						this.valorTipoBebida.getText(), this.valorVol.getText());
+						this.valorTipoBebida.getText(), this.valorVol.getText(), Integer.valueOf(this.valorQtdBebida.getText()));
 				dados.getBebidas().add(novaBebida);
 				janela.dispose();
 			} catch (NumberFormatException exc) {
@@ -188,7 +202,7 @@ public class TelaCadastroBebida implements ActionListener {
 			try {
 				novaBebida = new Bebida(this.valorNome.getText(), Float.valueOf(this.valorPreco.getText()),
 						Integer.valueOf(this.valorId.getText()), this.valorDesc.getText(), this.valorCal.getText(),
-						this.valorTipoBebida.getText(), this.valorVol.getText());
+						this.valorTipoBebida.getText(), this.valorVol.getText(), Integer.valueOf(this.valorQtdBebida.getText()));
 				dados.getBebidas().set(position, novaBebida);
 				janela.dispose();
 			} catch (NumberFormatException exc) {

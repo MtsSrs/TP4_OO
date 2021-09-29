@@ -27,7 +27,7 @@ public class TelaCliente implements ActionListener, ListSelectionListener {
 
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
 		titulo.setBounds(120, 10, 200, 30);
-		listaDeClientes.setBounds(20, 50, 350, 100);
+		listaDeClientes.setBounds(20, 50, 350, 230);
 		listaDeClientes.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		listaDeClientes.setVisibleRowCount(-1);
 		listaDeClientes.setLayoutOrientation(JList.VERTICAL_WRAP);

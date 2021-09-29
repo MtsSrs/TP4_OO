@@ -3,8 +3,6 @@ package control;
 import java.util.ArrayList;
 
 import modelo.Estabelecimento;
-import modelo.Telefone;
-//import test_application.Main;
 
 public class ControleEstabelecimento {
 	private ArrayList<Estabelecimento> c;

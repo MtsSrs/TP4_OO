@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.Font;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -10,8 +9,6 @@ import control.ControleBebida;
 import control.ControleCliente;
 import control.ControleDados;
 import control.ControlePastel;
-import modelo.Cliente;
-import modelo.Telefone;
 import modelo.Venda;
 
 public class TelaCadastroVenda implements ActionListener, ListSelectionListener {

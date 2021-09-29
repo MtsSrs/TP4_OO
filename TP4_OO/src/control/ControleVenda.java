@@ -2,7 +2,6 @@ package control;
 
 import java.util.ArrayList;
 
-import modelo.Cliente;
 import modelo.Venda;
 //import test_application.Main;
 

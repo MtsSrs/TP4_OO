@@ -28,6 +28,8 @@ public class TelaCadastroPastel implements ActionListener {
 	private JTextField valorComp;
 	private JLabel labelSaborPastel = new JLabel("Sabor(Salgado/Doce): ");
 	private JTextField valorSabor;
+	private JLabel labelQtdPastel = new JLabel("Quantidade(Un.): ");
+	private JTextField valorQtdPastel;
 	private JButton salvar = new JButton("Salvar");
 	private JButton editar = new JButton("Editar");
 	private JButton deletar = new JButton("Deletar");
@@ -47,6 +49,7 @@ public class TelaCadastroPastel implements ActionListener {
 		valorCal = new JTextField(200);
 		valorComp = new JTextField(200);
 		valorSabor = new JTextField(200);
+		valorQtdPastel = new JTextField(200);
 
 		labelNomePastel.setBounds(10, 60, 100, 25);
 		valorNome.setBounds(110, 60, 250, 25);
@@ -69,7 +72,10 @@ public class TelaCadastroPastel implements ActionListener {
 		labelSaborPastel.setBounds(10, 310, 150, 25);
 		valorSabor.setBounds(150, 310, 210, 25);
 
-		salvar.setBounds(245, 350, 115, 30);
+		labelQtdPastel.setBounds(10, 360, 100, 25);
+		valorQtdPastel.setBounds(110, 360, 250, 25);
+
+		salvar.setBounds(245, 400, 115, 30);
 
 		this.janela.add(labelNomePastel);
 		this.janela.add(valorNome);
@@ -85,12 +91,14 @@ public class TelaCadastroPastel implements ActionListener {
 		this.janela.add(valorComp);
 		this.janela.add(labelSaborPastel);
 		this.janela.add(valorSabor);
+		this.janela.add(labelQtdPastel);
+		this.janela.add(valorQtdPastel);
 
 		this.janela.add(salvar);
 
 		this.janela.setLayout(null);
 
-		this.janela.setSize(400, 450);
+		this.janela.setSize(400, 500);
 		this.janela.setVisible(true);
 
 		salvar.addActionListener(this);
@@ -110,6 +118,7 @@ public class TelaCadastroPastel implements ActionListener {
 		valorCal = new JTextField(d.getPasteis().get(pos).getCaloriaProduto(), 200);
 		valorComp = new JTextField(d.getPasteis().get(pos).getComprimentoPastel(), 200);
 		valorSabor = new JTextField(d.getPasteis().get(pos).getSaborPastel(), 200);
+		valorQtdPastel = new JTextField(String.valueOf(d.getPasteis().get(pos).getQtdPastel()));
 
 		labelNomePastel.setBounds(10, 60, 100, 25);
 		valorNome.setBounds(110, 60, 250, 25);
@@ -132,8 +141,11 @@ public class TelaCadastroPastel implements ActionListener {
 		labelSaborPastel.setBounds(10, 310, 150, 25);
 		valorSabor.setBounds(150, 310, 210, 25);
 
-		editar.setBounds(245, 350, 115, 30);
-		deletar.setBounds(20, 350, 115, 30);
+		labelQtdPastel.setBounds(10, 360, 100, 25);
+		valorQtdPastel.setBounds(110, 360, 250, 25);
+
+		editar.setBounds(245, 400, 115, 30);
+		deletar.setBounds(20, 400, 115, 30);
 
 		this.janela.add(labelNomePastel);
 		this.janela.add(valorNome);
@@ -149,13 +161,15 @@ public class TelaCadastroPastel implements ActionListener {
 		this.janela.add(valorComp);
 		this.janela.add(labelSaborPastel);
 		this.janela.add(valorSabor);
+		this.janela.add(labelQtdPastel);
+		this.janela.add(valorQtdPastel);
 
 		this.janela.add(editar);
 		this.janela.add(deletar);
 
 		this.janela.setLayout(null);
 
-		this.janela.setSize(400, 450);
+		this.janela.setSize(400, 500);
 		this.janela.setVisible(true);
 
 		editar.addActionListener(this);
@@ -170,7 +184,8 @@ public class TelaCadastroPastel implements ActionListener {
 			try {
 				novoPastel = new Pastel(this.valorNome.getText(), Float.valueOf(this.valorPreco.getText()),
 						Integer.valueOf(this.valorId.getText()), this.valorDesc.getText(), this.valorCal.getText(),
-						this.valorSabor.getText(), this.valorComp.getText());
+						this.valorSabor.getText(), this.valorComp.getText(),
+						Integer.valueOf(this.valorQtdPastel.getText()));
 				dados.getPasteis().add(novoPastel);
 				janela.dispose();
 			} catch (NumberFormatException exc) {
@@ -187,7 +202,8 @@ public class TelaCadastroPastel implements ActionListener {
 			try {
 				novoPastel = new Pastel(this.valorNome.getText(), Float.valueOf(this.valorPreco.getText()),
 						Integer.valueOf(this.valorId.getText()), this.valorDesc.getText(), this.valorCal.getText(),
-						this.valorSabor.getText(), this.valorComp.getText());
+						this.valorSabor.getText(), this.valorComp.getText(),
+						Integer.valueOf(this.valorQtdPastel.getText()));
 				dados.getPasteis().set(position, novoPastel);
 				janela.dispose();
 			} catch (NumberFormatException exc) {

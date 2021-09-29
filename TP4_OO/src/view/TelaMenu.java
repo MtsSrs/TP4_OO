@@ -1,8 +1,12 @@
 package view;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 import control.ControleDados;
 
@@ -84,8 +88,7 @@ public class TelaMenu implements ActionListener{
 			
 		
 		if(src == estoque) {
-			JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades "
-					+ "desse botão", null, JOptionPane.INFORMATION_MESSAGE);
+			new TelaEstoque().TelaMostraEstoque(dados);
 		}
 			
 	}

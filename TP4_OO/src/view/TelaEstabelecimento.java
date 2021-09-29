@@ -6,7 +6,6 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import control.ControleCliente;
 import control.ControleDados;
 import control.ControleEstabelecimento;
 

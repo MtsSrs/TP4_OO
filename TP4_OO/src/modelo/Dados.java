@@ -6,8 +6,6 @@ public class Dados {
     public ArrayList<Cliente> clientes = new ArrayList<>();
     public ArrayList<Bebida> bebidas = new ArrayList<>();
     public ArrayList<Pastel> pasteis = new ArrayList<>();
-    public ArrayList<Integer> estoque_pastel = new ArrayList<>();
-    public ArrayList<Integer> estoque_bebida = new ArrayList<>();
     public ArrayList<Estabelecimento> estabelecimentos = new ArrayList<>();
     public ArrayList<Venda> vendas = new ArrayList<>();
 
@@ -30,18 +28,6 @@ public class Dados {
     public void setPasteis(ArrayList<Pastel> pasteis) {
         this.pasteis = pasteis;
     }
-    public ArrayList<Integer> getEstoque_pastel() {
-        return estoque_pastel;
-    }
-    public void setEstoque_pastel(ArrayList<Integer> estoque_pastel) {
-        this.estoque_pastel = estoque_pastel;
-    }
-    public ArrayList<Integer> getEstoque_bebida() {
-        return estoque_bebida;
-    }
-    public void setEstoque_bebida(ArrayList<Integer> estoque_bebida) {
-        this.estoque_bebida = estoque_bebida;
-    }
     public ArrayList<Estabelecimento> getEstabelecimentos() {
         return estabelecimentos;
     }
@@ -60,16 +46,16 @@ public void bancoDados() {
     Cliente Matheus = new Cliente("Matheus", "Valparaíso", "22222222222", new Telefone("61", "987654321"));
 
     Pastel Queijo = new Pastel("Pastel de queijo pequeno", (float) 13.99, 1, "Pastel recheado com queijo", "215",
-            "Salgado", "10");
+            "Salgado", "10", 40);
     Pastel Carne = new Pastel("Pastel de carne pequeno", (float) 13.99, 2, "Pastel recheado com carne", "149",
-            "Salgado", "10");
+            "Salgado", "10", 50);
     Pastel Chocolate = new Pastel("Pastel de chocolate médio", (float) 15.99, 3, "Pastel recheado com chocolate", "250",
-            "Doce", "15");
+            "Doce", "15", 60);
     
-    bebidas.add(new Bebida("Água", (float) 4.99, 1, "Uma garrafa de água", "0", "Água", "500"));
-	bebidas.add(new Bebida("Coca-cola", (float) 7.99, 2, "Uma lata de Coca-cola", "85", "Refrigerante", "300"));
+    bebidas.add(new Bebida("Água", (float) 4.99, 1, "Uma garrafa de água", "0", "Água", "500", 10));
+	bebidas.add(new Bebida("Coca-cola", (float) 7.99, 2, "Uma lata de Coca-cola", "85", "Refrigerante", "300", 20));
 	bebidas.add(new Bebida("Coca-cola light", (float) 7.99, 3, "Uma lata de Coca-cola light", "2", "Refrigerante",
-			"300"));
+			"300", 30));
 
     Estabelecimento Brasilia = new Estabelecimento("Brasília", "11111111", new Telefone("61", "111112222"));
     Estabelecimento Valparaiso = new Estabelecimento("Valparaíso", "22222222", new Telefone("61", "222221111"));
@@ -89,13 +75,6 @@ public void bancoDados() {
     
     this.getVendas().add(Venda1);
     this.getVendas().add(Venda2);
-
-    this.getEstoque_pastel().add(10);
-    this.getEstoque_pastel().add(20);
-    this.getEstoque_pastel().add(30);
-    this.getEstoque_bebida().add(40);
-    this.getEstoque_bebida().add(50);
-    this.getEstoque_bebida().add(60);
 
     }
 
