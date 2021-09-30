@@ -40,7 +40,7 @@ public class TelaCadastroPastel implements ActionListener {
 	public void cadastrarPastel(ControleDados d) {
 		dados = d;
 
-		janela = new JFrame("Cadastro de novo Pastel");
+		janela = new JFrame("Cadastro de novo pastel");
 
 		valorNome = new JTextField(200);
 		valorPreco = new JTextField(200);
@@ -109,7 +109,7 @@ public class TelaCadastroPastel implements ActionListener {
 		dados = d;
 		position = pos;
 
-		janela = new JFrame("Editar cliente");
+		janela = new JFrame("Editar pastel");
 
 		valorNome = new JTextField(d.getPasteis().get(pos).getNomeProduto(), 200);
 		valorPreco = new JTextField(String.valueOf(d.getPasteis().get(pos).getPrecoProduto()), 200);

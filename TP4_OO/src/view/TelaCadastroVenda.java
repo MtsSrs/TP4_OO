@@ -35,6 +35,9 @@ public class TelaCadastroVenda implements ActionListener, ListSelectionListener 
 	private JTextField valorQtdPastel;
 	private JTextField valorQtdBebida;
 	private static ControleDados dados;
+	private JComboBox<String> boxCliente;
+	private JComboBox<String> boxPastel;
+	private JComboBox<String> boxBebida;
 	private int position;
 	private int clienteSelecionado;
 	private int pastelSelecionado;
@@ -47,11 +50,11 @@ public class TelaCadastroVenda implements ActionListener, ListSelectionListener 
 	public void cadastrarVenda(ControleDados d) {
 		dados = d;
 		listaNomes = new ControleCliente(d).getNomeCliente();
-		listaDeClientes = new JList<String>(listaNomes);
+		boxCliente = new JComboBox<String>(listaNomes);
 		listaPasteis = new ControlePastel(d).getNomePastel();
-		listaDePasteis = new JList<String>(listaPasteis);
+		boxPastel = new JComboBox<String>(listaPasteis);
 		listaBebidas = new ControleBebida(d).getNomeBebida();
-		listaDeBebidas = new JList<String>(listaBebidas);
+		boxBebida = new JComboBox<String>(listaBebidas);
 
 		janela = new JFrame("Cadastro de nova venda");
 		selecaoCliente = new JLabel("Selecione o cliente:");
@@ -63,21 +66,10 @@ public class TelaCadastroVenda implements ActionListener, ListSelectionListener 
 		labelQtdPastel.setBounds(20, 180, 300, 30);
 		selecaoBebida.setBounds(20, 235, 180, 30);
 		labelQtdBebida.setBounds(20, 325, 300, 30);
-
-		listaDeClientes.setBounds(20, 30, 350, 60);
-		listaDeClientes.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-		listaDeClientes.setVisibleRowCount(-1);
-		listaDeClientes.setLayoutOrientation(JList.VERTICAL_WRAP);
-
-		listaDePasteis.setBounds(20, 120, 350, 60);
-		listaDePasteis.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-		listaDePasteis.setVisibleRowCount(-1);
-		listaDePasteis.setLayoutOrientation(JList.VERTICAL_WRAP);
-
-		listaDeBebidas.setBounds(20, 265, 350, 60);
-		listaDeBebidas.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-		listaDeBebidas.setVisibleRowCount(-1);
-		listaDeBebidas.setLayoutOrientation(JList.VERTICAL_WRAP);
+		
+		boxCliente.setBounds(20, 30, 180, 30);
+		boxPastel.setBounds(20, 120, 180, 30);
+		boxBebida.setBounds(20, 265, 180, 30);
 
 		valorQtdPastel = new JTextField(200);
 		valorQtdBebida = new JTextField(200);
@@ -87,9 +79,6 @@ public class TelaCadastroVenda implements ActionListener, ListSelectionListener 
 		cadastrar.setBounds(245, 410, 115, 30);
 
 		this.janela.add(cadastrar);
-		this.janela.add(listaDeClientes);
-		this.janela.add(listaDePasteis);
-		this.janela.add(listaDeBebidas);
 		this.janela.add(selecaoCliente);
 		this.janela.add(selecaoPastel);
 		this.janela.add(selecaoBebida);
@@ -97,16 +86,19 @@ public class TelaCadastroVenda implements ActionListener, ListSelectionListener 
 		this.janela.add(valorQtdPastel);
 		this.janela.add(labelQtdBebida);
 		this.janela.add(valorQtdBebida);
-
+		this.janela.add(boxCliente);
+		this.janela.add(boxPastel);
+		this.janela.add(boxBebida);
+		
 		this.janela.setLayout(null);
 
 		this.janela.setSize(400, 500);
 		this.janela.setVisible(true);
 
 		cadastrar.addActionListener(this);
-		listaDeClientes.addListSelectionListener(this);
-		listaDePasteis.addListSelectionListener(this);
-		listaDeBebidas.addListSelectionListener(this);
+		boxCliente.addActionListener(this);
+		boxPastel.addActionListener(this);
+		boxBebida.addActionListener(this);
 	}
 
 	public void mostrarDadosVenda(ControleDados d, int pos) {
@@ -157,24 +149,25 @@ public class TelaCadastroVenda implements ActionListener, ListSelectionListener 
 		this.janela.add(editar);
 		this.janela.add(precoTotal);
 		this.janela.add(valorPreco);
-
+		
 		this.janela.setLayout(null);
 
 		this.janela.setSize(400, 400);
 		this.janela.setVisible(true);
 
 		editar.addActionListener(this);
+		
 	}
 
 	public void editarVenda(ControleDados d) {
 		dados = d;
 
 		listaNomes = new ControleCliente(d).getNomeCliente();
-		listaDeClientes = new JList<String>(listaNomes);
+		boxCliente = new JComboBox<String>(listaNomes);
 		listaPasteis = new ControlePastel(d).getNomePastel();
-		listaDePasteis = new JList<String>(listaPasteis);
+		boxPastel = new JComboBox<String>(listaPasteis);
 		listaBebidas = new ControleBebida(d).getNomeBebida();
-		listaDeBebidas = new JList<String>(listaBebidas);
+		boxBebida = new JComboBox<String>(listaBebidas);
 
 		janela = new JFrame("Editar venda");
 
@@ -183,21 +176,10 @@ public class TelaCadastroVenda implements ActionListener, ListSelectionListener 
 		labelQtdPastel.setBounds(20, 180, 300, 30);
 		selecaoBebida.setBounds(20, 235, 180, 30);
 		labelQtdBebida.setBounds(20, 325, 300, 30);
-
-		listaDeClientes.setBounds(20, 30, 350, 60);
-		listaDeClientes.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-		listaDeClientes.setVisibleRowCount(-1);
-		listaDeClientes.setLayoutOrientation(JList.VERTICAL_WRAP);
-
-		listaDePasteis.setBounds(20, 120, 350, 60);
-		listaDePasteis.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-		listaDePasteis.setVisibleRowCount(-1);
-		listaDePasteis.setLayoutOrientation(JList.VERTICAL_WRAP);
-
-		listaDeBebidas.setBounds(20, 265, 350, 60);
-		listaDeBebidas.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-		listaDeBebidas.setVisibleRowCount(-1);
-		listaDeBebidas.setLayoutOrientation(JList.VERTICAL_WRAP);
+		
+		boxCliente.setBounds(20, 30, 180, 30);
+		boxPastel.setBounds(20, 120, 180, 30);
+		boxBebida.setBounds(20, 265, 180, 30);
 
 		valorQtdPastel = new JTextField(200);
 		valorQtdBebida = new JTextField(200);
@@ -209,9 +191,6 @@ public class TelaCadastroVenda implements ActionListener, ListSelectionListener 
 
 		this.janela.add(confirmar);
 		this.janela.add(deletar);
-		this.janela.add(listaDeClientes);
-		this.janela.add(listaDePasteis);
-		this.janela.add(listaDeBebidas);
 		this.janela.add(selecaoCliente);
 		this.janela.add(selecaoPastel);
 		this.janela.add(selecaoBebida);
@@ -219,6 +198,9 @@ public class TelaCadastroVenda implements ActionListener, ListSelectionListener 
 		this.janela.add(valorQtdPastel);
 		this.janela.add(labelQtdBebida);
 		this.janela.add(valorQtdBebida);
+		this.janela.add(boxCliente);
+		this.janela.add(boxPastel);
+		this.janela.add(boxBebida);
 
 		this.janela.setLayout(null);
 
@@ -226,10 +208,9 @@ public class TelaCadastroVenda implements ActionListener, ListSelectionListener 
 		this.janela.setVisible(true);
 
 		confirmar.addActionListener(this);
-		deletar.addActionListener(this);
-		listaDeClientes.addListSelectionListener(this);
-		listaDePasteis.addListSelectionListener(this);
-		listaDeBebidas.addListSelectionListener(this);
+		boxCliente.addActionListener(this);
+		boxPastel.addActionListener(this);
+		boxBebida.addActionListener(this);
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -318,11 +299,23 @@ public class TelaCadastroVenda implements ActionListener, ListSelectionListener 
 			janela.dispose();
 			editarVenda(dados);
 		}
+		
+		if (src == boxCliente) {
+			clienteSelecionado = boxCliente.getSelectedIndex();
+		}
+
+		if (src == boxPastel) {
+			pastelSelecionado = boxPastel.getSelectedIndex();
+		}
+		
+		if(src == boxBebida) {
+			bebidaSelecionada = boxBebida.getSelectedIndex();
+		}
 	}
 
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
-
+		
 		if (e.getValueIsAdjusting() && src == listaDeClientes) {
 			clienteSelecionado = listaDeClientes.getSelectedIndex();
 		}

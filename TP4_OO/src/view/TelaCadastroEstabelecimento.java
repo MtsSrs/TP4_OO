@@ -31,7 +31,7 @@ public class TelaCadastroEstabelecimento implements ActionListener {
     public void cadastrarEstabelecimento(ControleDados d) {
         dados = d;
 
-        janela = new JFrame("Cadastro de novo cliente");
+        janela = new JFrame("Cadastro de novo estabelecimento");
 
         valorEndereco = new JTextField(200);
         valorCep = new JTextField(11);
@@ -70,7 +70,7 @@ public void editarEstabelecimento(ControleDados d, int pos) {
         dados = d;
         position = pos;
 
-        janela = new JFrame("Editar cliente");
+        janela = new JFrame("Editar estabelecimento");
 
         valorEndereco = new JTextField(d.getEstabelecimentos().get(pos).getEnderecoEstbelecimento(), 200);
         valorCep = new JTextField(d.getEstabelecimentos().get(pos).getCepEstabelecimento(), 8);

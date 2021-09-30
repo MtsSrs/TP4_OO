@@ -26,7 +26,7 @@ public class TelaEstabelecimento implements ActionListener, ListSelectionListene
         titulo = new JLabel("Lista de estabelecimentos");
 
         titulo.setFont(new Font("Arial", Font.BOLD, 20));
-        titulo.setBounds(120,10,200,30);
+        titulo.setBounds(80,10,300,30);
         listaDeEstabelecimentos.setBounds(20, 50, 350, 230);
         listaDeEstabelecimentos.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         listaDeEstabelecimentos.setVisibleRowCount(10);

@@ -44,6 +44,8 @@ public void bancoDados() {
 
     Cliente mateus = new Cliente("Mateus", "Brasília", "11111111111", new Telefone("61", "123456789"));
     Cliente matheus = new Cliente("Matheus", "Valparaíso", "22222222222", new Telefone("61", "987654321"));
+    Cliente mariana = new Cliente("Mariana", "Asa norte", "33333333333", new Telefone("38", "956555444"));
+    Cliente alcina = new Cliente("Alcina", "Céu Azul", "44444444444", new Telefone("61", "5486231974"));
 
     Pastel queijo = new Pastel("Pastel de queijo pequeno", (float) 13.99, 1, "Pastel recheado com queijo", "215",
             "Salgado", "10", 40);
@@ -71,6 +73,8 @@ public void bancoDados() {
 
     this.getClientes().add(mateus);
     this.getClientes().add(matheus);
+    this.getClientes().add(mariana);
+    this.getClientes().add(alcina);
    
     this.getPasteis().add(queijo);
     this.getPasteis().add(carne);

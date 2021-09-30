@@ -42,7 +42,7 @@ public class TelaCadastroEstoque implements ActionListener, ListSelectionListene
 		dados = d;
 		position = pos;
 
-		janela = new JFrame("Dados de estoque");
+		janela = new JFrame("Dados do pastel");
 
 		JLabel labelNomeProdutoPastel = new JLabel("" + dados.getPasteis().get(pos).getNomeProduto());
 		JLabel labelPrecoProdutoPastel = new JLabel("" + dados.getPasteis().get(pos).getPrecoProduto());
@@ -83,7 +83,7 @@ public class TelaCadastroEstoque implements ActionListener, ListSelectionListene
 		dados = d;
 		position = pos;
 
-		janela = new JFrame("Dados de estoque");
+		janela = new JFrame("Dados da bebida");
 
 		JLabel labelNomeProdutoBebida = new JLabel("" + dados.getBebidas().get(pos).getNomeProduto());
 		JLabel labelPrecoProdutoBebida = new JLabel("" + dados.getBebidas().get(pos).getPrecoProduto());
@@ -125,7 +125,7 @@ public class TelaCadastroEstoque implements ActionListener, ListSelectionListene
 		selecao = selecaoProduto;
 
 		if (selecao == 1) {
-			janela = new JFrame("Adicionar novo Estoque");
+			janela = new JFrame("Adicionar ao estoque");
 
 			valorQtdProduto = new JTextField(200);
 
@@ -147,7 +147,7 @@ public class TelaCadastroEstoque implements ActionListener, ListSelectionListene
 		}
 
 		if (selecao == 2) {
-			janela = new JFrame("Adicionar novo Estoque");
+			janela = new JFrame("Adicionar ao estoque");
 
 			valorQtdProduto = new JTextField(200);
 
@@ -174,8 +174,8 @@ public class TelaCadastroEstoque implements ActionListener, ListSelectionListene
 		listaDeNomesDeSaborPasteis = new ControlePastel(d).getSaborPastelSalgado();
 		listaDePasteis = new JList<String>(listaDeNomesDeSaborPasteis);
 		
-		janela = new JFrame("Pasteis Salgados");
-		JLabel titulo = new JLabel("Lista de Pasteis Salgados");
+		janela = new JFrame("Pasteis salgados");
+		JLabel titulo = new JLabel("Lista de pasteis salgados");
 		
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
 		titulo.setBounds(70, 10, 300, 30);
@@ -201,8 +201,8 @@ public class TelaCadastroEstoque implements ActionListener, ListSelectionListene
 		listaDeNomesDeSaborPasteis = new ControlePastel(d).getSaborPastelDoce();
 		listaDePasteis = new JList<String>(listaDeNomesDeSaborPasteis);
 		
-		janela = new JFrame("Pasteis Doces");
-		JLabel titulo = new JLabel("Lista de Pasteis Doces");
+		janela = new JFrame("Pasteis doces");
+		JLabel titulo = new JLabel("Lista de pasteis doces");
 		
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
 		titulo.setBounds(70, 10, 300, 30);
