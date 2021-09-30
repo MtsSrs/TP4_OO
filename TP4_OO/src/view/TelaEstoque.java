@@ -8,7 +8,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -90,13 +89,11 @@ public class TelaEstoque implements ActionListener, ListSelectionListener {
 		Object src = e.getSource();
 
 		if (src == salgado) {
-			JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades " + "desse botão",
-					null, JOptionPane.INFORMATION_MESSAGE);
+		new TelaCadastroEstoque().mostraPastelSalgado(dados);
 		}
 		
 		if (src == doce) {
-			JOptionPane.showMessageDialog(null, "Ainda precisam ser implementadas as funcionalidades " + "desse botão",
-					null, JOptionPane.INFORMATION_MESSAGE);
+		new TelaCadastroEstoque().mostraPastelDoce(dados);
 		}
 		
 		if (src == refresh) {

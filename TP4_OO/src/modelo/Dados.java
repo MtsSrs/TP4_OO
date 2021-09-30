@@ -42,39 +42,50 @@ public class Dados {
     }
 public void bancoDados() {
 
-    Cliente Mateus = new Cliente("Mateus", "Brasília", "11111111111", new Telefone("61", "123456789"));
-    Cliente Matheus = new Cliente("Matheus", "Valparaíso", "22222222222", new Telefone("61", "987654321"));
+    Cliente mateus = new Cliente("Mateus", "Brasília", "11111111111", new Telefone("61", "123456789"));
+    Cliente matheus = new Cliente("Matheus", "Valparaíso", "22222222222", new Telefone("61", "987654321"));
 
-    Pastel Queijo = new Pastel("Pastel de queijo pequeno", (float) 13.99, 1, "Pastel recheado com queijo", "215",
+    Pastel queijo = new Pastel("Pastel de queijo pequeno", (float) 13.99, 1, "Pastel recheado com queijo", "215",
             "Salgado", "10", 40);
-    Pastel Carne = new Pastel("Pastel de carne pequeno", (float) 13.99, 2, "Pastel recheado com carne", "149",
+    Pastel carne = new Pastel("Pastel de carne pequeno", (float) 13.99, 2, "Pastel recheado com carne", "149",
             "Salgado", "10", 50);
-    Pastel Chocolate = new Pastel("Pastel de chocolate médio", (float) 15.99, 3, "Pastel recheado com chocolate", "250",
+    Pastel chocolate = new Pastel("Pastel de chocolate médio", (float) 15.99, 3, "Pastel recheado com chocolate", "250",
             "Doce", "15", 60);
+    Pastel romeuEjulieta = new Pastel("Pastel Romeu & Julietta médio", (float) 21.99, 4, "Pastel recheado com queijo e goiabada", "255",
+            "Doce", "15", 70);
+    Pastel portuguesa = new Pastel("Pastel Portuguesa grande", (float) 25.99, 5, "Pastel recheado com presunto, queijo, ovo, ervilha e cebola", "436",
+            "Salgado", "20", 80);
     
     bebidas.add(new Bebida("Água", (float) 4.99, 1, "Uma garrafa de água", "0", "Água", "500", 10));
 	bebidas.add(new Bebida("Coca-cola", (float) 7.99, 2, "Uma lata de Coca-cola", "85", "Refrigerante", "300", 20));
 	bebidas.add(new Bebida("Coca-cola light", (float) 7.99, 3, "Uma lata de Coca-cola light", "2", "Refrigerante",
 			"300", 30));
+	bebidas.add(new Bebida("Iced Tea de Pêssego", (float) 9.99, 4, "Um copo de chá gelado sabor Pêssego", "58", "Chá Gelado",
+			"250", 40));
+	bebidas.add(new Bebida("Caldo de cana", (float) 4.99, 5, "Um copo de caldo de cana", "269", "Suco",
+			"300", 50));
+	
 
-    Estabelecimento Brasilia = new Estabelecimento("Brasília", "11111111", new Telefone("61", "111112222"));
-    Estabelecimento Valparaiso = new Estabelecimento("Valparaíso", "22222222", new Telefone("61", "222221111"));
+    Estabelecimento brasilia = new Estabelecimento("Brasília", "11111111", new Telefone("61", "111112222"));
+    Estabelecimento valparaiso = new Estabelecimento("Valparaíso", "22222222", new Telefone("61", "222221111"));
 
-    this.getClientes().add(Mateus);
-    this.getClientes().add(Matheus);
+    this.getClientes().add(mateus);
+    this.getClientes().add(matheus);
    
-    this.getPasteis().add(Queijo);
-    this.getPasteis().add(Carne);
-    this.getPasteis().add(Chocolate);
+    this.getPasteis().add(queijo);
+    this.getPasteis().add(carne);
+    this.getPasteis().add(chocolate);
+    this.getPasteis().add(romeuEjulieta);
+    this.getPasteis().add(portuguesa);
     
-    Venda Venda1 = new Venda(0, clientes.get(0), (float) 18.98, pasteis.get(0), bebidas.get(0));
-    Venda Venda2 = new Venda(1, clientes.get(1), (float) 21.98, pasteis.get(1), bebidas.get(1));
+    Venda venda1 = new Venda(0, clientes.get(0), (float) 18.98, pasteis.get(0), bebidas.get(0));
+    Venda venda2 = new Venda(1, clientes.get(1), (float) 21.98, pasteis.get(1), bebidas.get(1));
     
-    this.getEstabelecimentos().add(Brasilia);
-    this.getEstabelecimentos().add(Valparaiso);
+    this.getEstabelecimentos().add(brasilia);
+    this.getEstabelecimentos().add(valparaiso);
     
-    this.getVendas().add(Venda1);
-    this.getVendas().add(Venda2);
+    this.getVendas().add(venda1);
+    this.getVendas().add(venda2);
 
     }
 
