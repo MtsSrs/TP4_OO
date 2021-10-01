@@ -38,6 +38,4 @@ public class ControleDados {
 	public ArrayList<Venda> getVendas() {
 		return this.d.getVendas();
 	}
-	
-
 }
