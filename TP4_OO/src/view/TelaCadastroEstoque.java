@@ -191,9 +191,7 @@ public class TelaCadastroEstoque implements ActionListener, ListSelectionListene
 		
 		janela.setSize(400,305);
 		janela.setVisible(true);
-		
-		listaDePasteis.addListSelectionListener(this);
-		
+				
 	}
 
 	public void mostraPastelDoce(ControleDados d) {
@@ -219,7 +217,6 @@ public class TelaCadastroEstoque implements ActionListener, ListSelectionListene
 		janela.setSize(400,305);
 		janela.setVisible(true);
 		
-		listaDePasteis.addListSelectionListener(this);
 		
 	}
 

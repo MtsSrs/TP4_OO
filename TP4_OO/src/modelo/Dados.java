@@ -46,6 +46,7 @@ public void bancoDados() {
     Cliente matheus = new Cliente("Matheus", "Valparaíso", "22222222222", new Telefone("61", "987654321"));
     Cliente mariana = new Cliente("Mariana", "Asa norte", "33333333333", new Telefone("38", "956555444"));
     Cliente alcina = new Cliente("Alcina", "Céu Azul", "44444444444", new Telefone("61", "5486231974"));
+    Cliente mauro = new Cliente("Mauro", "Lago Sul", "55555555555", new Telefone("61", "246781320"));
 
     Pastel queijo = new Pastel("Pastel de queijo pequeno", (float) 13.99, 1, "Pastel recheado com queijo", "215",
             "Salgado", "10", 40);
@@ -70,12 +71,16 @@ public void bancoDados() {
 
     Estabelecimento brasilia = new Estabelecimento("Brasília", "11111111", new Telefone("61", "111112222"));
     Estabelecimento valparaiso = new Estabelecimento("Valparaíso", "22222222", new Telefone("61", "222221111"));
-
+    Estabelecimento goiânia = new Estabelecimento("Goiânia", "33333333", new Telefone("62", "333331456"));
+    Estabelecimento pirenopolis = new Estabelecimento("Pirenópolis", "44444444", new Telefone("62", "365471249"));
+    Estabelecimento gama = new Estabelecimento("Gama", "55555555", new Telefone("61", "365451574"));
+    
     this.getClientes().add(mateus);
     this.getClientes().add(matheus);
     this.getClientes().add(mariana);
     this.getClientes().add(alcina);
-   
+    this.getClientes().add(mauro);
+    
     this.getPasteis().add(queijo);
     this.getPasteis().add(carne);
     this.getPasteis().add(chocolate);
@@ -84,12 +89,21 @@ public void bancoDados() {
     
     Venda venda1 = new Venda(0, clientes.get(0), (float) 18.98, pasteis.get(0), bebidas.get(0));
     Venda venda2 = new Venda(1, clientes.get(1), (float) 21.98, pasteis.get(1), bebidas.get(1));
+    Venda venda3 = new Venda(2, clientes.get(2), (float) 23.98, pasteis.get(2), bebidas.get(2));
+    Venda venda4 = new Venda(3, clientes.get(3), (float) 31.98, pasteis.get(3), bebidas.get(3));
+    Venda venda5 = new Venda(4, clientes.get(4), (float) 30.98, pasteis.get(4), bebidas.get(4));
     
     this.getEstabelecimentos().add(brasilia);
     this.getEstabelecimentos().add(valparaiso);
+    this.getEstabelecimentos().add(goiânia);
+    this.getEstabelecimentos().add(pirenopolis);
+    this.getEstabelecimentos().add(gama);
     
     this.getVendas().add(venda1);
     this.getVendas().add(venda2);
+    this.getVendas().add(venda3);
+    this.getVendas().add(venda4);
+    this.getVendas().add(venda5);
 
     }
 
