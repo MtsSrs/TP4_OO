@@ -10,6 +10,11 @@ import javax.swing.JLabel;
 
 import control.ControleDados;
 
+/**
+ * Contém os métodos e os elementos da interface gráfica da tela do menu principal
+ * @author Mateus Caltabiano e Matheus Soares
+ * @version 1.0 (Out 2021)
+ */
 public class TelaMenu implements ActionListener{
 	
 	private static JFrame janela = new JFrame("Pastelaria M&M");
@@ -21,7 +26,10 @@ public class TelaMenu implements ActionListener{
 	private static JButton vendas = new JButton("Vendas");
 	private static JButton estoque = new JButton("Estoque");
 	public static ControleDados dados = new ControleDados();
-	
+
+	/**
+	 * Método da interface gráfica do menu principal
+	 */
 	public TelaMenu() {
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
 		titulo.setBounds(165,10,150,30);
@@ -46,7 +54,11 @@ public class TelaMenu implements ActionListener{
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		janela.setVisible(true);
 	}
-	
+
+	/**
+	 * Função main
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		TelaMenu menu = new TelaMenu();
 		
@@ -57,36 +69,53 @@ public class TelaMenu implements ActionListener{
 		vendas.addActionListener(menu);
 		estoque.addActionListener(menu);
 	}
-	
+
+	/**
+	 * Método para receber a ação do usuário sobre um botão
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
-		
+
+		/**
+		 * Abre a tela cliente
+		 */
 		if(src == clientes) {
 			new TelaCliente().Tela(dados);
 
 		}
-		
+
+		/**
+		 * Abre a tela pastéis
+		 */
 		if(src == pasteis) {
 			new TelaPastel().TelaMostraPastel(dados);
 		}
-			
 		
+		/**
+		 * Abre a tela bebidas
+		 */
 		if(src == bebidas) {
 			new TelaBebida().TelaMostraBebida(dados);
 		}
-			
 		
+		/**
+		 * Abre a tela estabelecimentos
+		 */
 		if(src == estabelecimentos) {
             new TelaEstabelecimento().TelaMostraEstabelecimento(dados);
         }
-			
 		
+		/**
+		 * Abre a tela vendas
+		 */		
 		if(src == vendas) {
 
 			new TelaVenda().TelaMostraVenda(dados);
 		}
-			
-		
+					
+		/**
+		 * Abre a tela estoque
+		 */
 		if(src == estoque) {
 			new TelaEstoque().TelaMostraEstoque(dados);
 		}

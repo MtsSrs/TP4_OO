@@ -7,11 +7,16 @@ import org.junit.jupiter.api.Test;
 
 import modelo.Valida;
 
-class TesteValida {
+/**
+ * Possui os resultados dos testes unitários
+ * @author Matheus Soares e Mateus Caltabiano
+ * @version 1.0 (Out 2021)
+ */
+public class TesteValida {
 	Valida v = new Valida();
 	
 	@Test
-	void testTel() {
+	public void testTel() {
 	assertTrue(v.validaTel("930481298"));	
 	assertTrue(v.validaTel("893832913"));
 	assertFalse(v.validaTel("999999999"));
@@ -19,7 +24,7 @@ class TesteValida {
 	}
 	
 	@Test
-	void testDDD() {
+	public void testDDD() {
 	assertTrue(v.validaDDD("061"));
 	assertTrue(v.validaDDD("51"));
 	assertFalse(v.validaDDD("0"));
@@ -27,7 +32,7 @@ class TesteValida {
 	}
 	
 	@Test
-	void testCPF() {
+	public void testCPF() {
 	assertTrue(v.validaCPF("19832193810"));
 	assertTrue(v.validaCPF("90390387312"));
 	assertFalse(v.validaCPF("9318"));
@@ -35,7 +40,7 @@ class TesteValida {
 	}
 	
 	@Test
-	void testCEP() {
+	public void testCEP() {
 	assertTrue(v.validaCEP("64342432"));
 	assertTrue(v.validaCEP("77777777"));
 	assertFalse(v.validaCEP("3921"));

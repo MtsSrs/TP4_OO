@@ -9,6 +9,11 @@ import javax.swing.event.ListSelectionListener;
 import control.ControleDados;
 import control.ControleEstabelecimento;
 
+/**
+ * Contém os métodos e os elementos da interface gráfica de estabelecimento
+ * @author Mateus Caltabiano e Matheus Soares
+ * @version 1.0 (Out 2021)
+ */
 public class TelaEstabelecimento implements ActionListener, ListSelectionListener {
     private JFrame janela = new JFrame("Estabelecimentos");
     private JLabel titulo = new JLabel("Lista de estabelecimentos");
@@ -18,6 +23,10 @@ public class TelaEstabelecimento implements ActionListener, ListSelectionListene
     private String[] listaEnderecos = new String [50];
     private static ControleDados dados;
 
+    /**
+	 * Método da interface gráfica ao selecionar Estabelecimento no menu principal
+     * @param d
+     */
     public void TelaMostraEstabelecimento(ControleDados d) {
         dados = d;
         listaEnderecos = new ControleEstabelecimento(d).getEnderecoEstabelecimento();
@@ -48,20 +57,38 @@ public class TelaEstabelecimento implements ActionListener, ListSelectionListene
         refresh.addActionListener(this);
         listaDeEstabelecimentos.addListSelectionListener(this);
     }
-public void actionPerformed(ActionEvent e) {
+    
+    /**
+	 * Método para receber a ação do usuário sobre um botão
+     */
+    public void actionPerformed(ActionEvent e) {
         Object src = e.getSource();
 
-        if(src == cadastrar)
-            new TelaCadastroEstabelecimento().cadastrarEstabelecimento(dados);;
+        /**
+		 * Abre a tela para cadastro de estabelecimento
+         */
+        if(src == cadastrar) {
+			new TelaCadastroEstabelecimento().cadastrarEstabelecimento(dados);
+        }
 
-        if(src == refresh)
-            listaDeEstabelecimentos.setListData(new ControleEstabelecimento(dados).getEnderecoEstabelecimento());
+        /**
+		 * Atualiza a lista de estabelecimentos
+         */
+        if(src == refresh) {
+        	listaDeEstabelecimentos.setListData(new ControleEstabelecimento(dados).getEnderecoEstabelecimento());
             listaDeEstabelecimentos.updateUI();
+        }
     }
 
+	/**
+	 * Método para receber a ação do usuário em uma lista
+	 */
     public void valueChanged(ListSelectionEvent e) {
         Object src = e.getSource();
 
+        /**
+		 * Ação sobre a lista de estabelecimentos
+         */
         if(e.getValueIsAdjusting() && src == listaDeEstabelecimentos) {
             new TelaCadastroEstabelecimento().editarEstabelecimento(dados, listaDeEstabelecimentos.getSelectedIndex());
         }

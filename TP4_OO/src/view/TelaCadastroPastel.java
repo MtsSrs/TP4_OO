@@ -12,6 +12,11 @@ import javax.swing.JTextField;
 import control.ControleDados;
 import modelo.Pastel;
 
+/**
+ * Contém os métodos e os elementos da interface gráfica de cadastro, visualização e edição de pastel
+ * @author Mateus Caltabiano e Matheus Soares
+ * version 1.0 (Out 2021)
+ */
 public class TelaCadastroPastel implements ActionListener {
 	private JFrame janela;
 	private JLabel labelNomePastel = new JLabel("Nome: ");
@@ -37,6 +42,10 @@ public class TelaCadastroPastel implements ActionListener {
 	private static ControleDados dados;
 	private int position;
 
+	/**
+	 * Método para cadastro de um novo pastel
+	 * @param d dados do banco de dados
+	 */
 	public void cadastrarPastel(ControleDados d) {
 		dados = d;
 
@@ -105,6 +114,11 @@ public class TelaCadastroPastel implements ActionListener {
 
 	}
 
+	/**
+	 * Método para editar um pastel já existente no ArrayList de pastéis
+	 * @param d dados do banco de dados
+	 * @param pos int da posição selecionada
+	 */
 	public void editarPastel(ControleDados d, int pos) {
 		dados = d;
 		position = pos;
@@ -177,9 +191,15 @@ public class TelaCadastroPastel implements ActionListener {
 
 	}
 
+	/**
+	 * Método para receber a ação do usuário sobre um botão
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 
+		/**
+		 * Cria um novo pastel e adiciona ao ArrayList de pastéis com os dados inseridos pelo usuário na função cadastrarPastel
+		 */
 		if (src == salvar) {
 			try {
 				novoPastel = new Pastel(this.valorNome.getText(), Float.valueOf(this.valorPreco.getText()),
@@ -193,11 +213,17 @@ public class TelaCadastroPastel implements ActionListener {
 			}
 		}
 
+		/**
+		 * Deleta o pastel selecionado pelo usuário do ArrayList de pastel
+		 */
 		if (src == deletar) {
 			dados.getPasteis().remove(position);
 			janela.dispose();
 		}
 
+		/**
+		 * Sobrepõe o pastel selecionado por um novo objeto pastel com os dados editados pelo usuário no método editarPastel
+		 */
 		if (src == editar) {
 			try {
 				novoPastel = new Pastel(this.valorNome.getText(), Float.valueOf(this.valorPreco.getText()),
@@ -213,6 +239,9 @@ public class TelaCadastroPastel implements ActionListener {
 		}
 	}
 
+	/*
+	 * Método para exibir uma mensagem de erro caso algum dado tenha sido digitado errado
+	 */
 	public void MensagemErroFormato() {
 		JOptionPane.showMessageDialog(null,
 				"Ocorreu um erro ao cadastrar o pastel.\n" + "- Verifique se Id foi utilizado numeros inteiros\n"

@@ -1,11 +1,26 @@
 package modelo;
 
-
+/**
+ * Contém os parâmetros para o objeto Pastel
+ * @author Matheus Soares e Mateus Caltabiano
+ * @version 1.0 (Out 2021)
+ */
 public class Pastel extends Produto {
 	private String saborPastel;
 	private String comprimentoPastel;
 	private int qtdPastel;
 
+	/**
+	 * Contstrutor para instanciação do objeto Pastel
+	 * @param nomeProduto String para nome do produto
+	 * @param precoProduto float para o preço do produto
+	 * @param idProduto int para o ID do produto
+	 * @param descricaoProduto String para a descrição do produto
+	 * @param caloriaProduto String para a quantidade de calorias do produto
+	 * @param saborPastel String para o sabor do Pastel
+	 * @param comprimentoPastel String para o comprimento do pastel
+	 * @param qtdPastel int para a quantidade de pastel
+	 */
 	public Pastel(String nomeProduto, float precoProduto, int idProduto, String descricaoProduto, String caloriaProduto,
 			String saborPastel, String comprimentoPastel, int qtdPastel) {
 		super(nomeProduto, precoProduto, idProduto, descricaoProduto, caloriaProduto);
@@ -13,8 +28,6 @@ public class Pastel extends Produto {
 		this.comprimentoPastel = comprimentoPastel;
 		this.qtdPastel = qtdPastel;
 	}
-
-
 
 	public String getSaborPastel() {
 		return saborPastel;

@@ -1,6 +1,11 @@
 package modelo;
 
 
+/**
+ * Contém os parâmetros para o objeto cliente
+ * @author Mateus Caltabiano e Matheus Soares
+ * @version 1.0 (Out 2021)
+ */
 public class Cliente {
 
 	private String nomeCliente;
@@ -8,6 +13,13 @@ public class Cliente {
 	private String cpfCliente;
 	private Telefone telefoneCliente;
 
+	/**
+	 * Contstrutor para instanciação do objeto Cliente
+	 * @param nomeCliente String para o nome do cliente
+	 * @param enderecoCliente String para o endereço do cliente
+	 * @param cpfCliente String para o CPF do cliente
+	 * @param telefoneCliente Telefone para o telefone do cliente
+	 */
 	public Cliente(String nomeCliente, String enderecoCliente, String cpfCliente, Telefone telefoneCliente) {
 		this.nomeCliente = nomeCliente;
 		this.enderecoCliente = enderecoCliente;

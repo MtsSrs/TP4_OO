@@ -11,6 +11,11 @@ import control.ControleDados;
 import control.ControlePastel;
 import modelo.Venda;
 
+/**
+ * Contém os métodos e os elementos da interface gráfica de cadastro, visualização e edição de venda
+ * @author Matheus Soares e Mateus Caltabiano
+ * @version 1.0 (Out 2021)
+ */
 public class TelaCadastroVenda implements ActionListener, ListSelectionListener {
 	private JFrame janela;
 	private JList<String> listaDeClientes;
@@ -47,6 +52,10 @@ public class TelaCadastroVenda implements ActionListener, ListSelectionListener 
 	private boolean checkPastel = false;
 	private boolean checkBebida = false;
 
+	/**
+	 * Método para cadastro de uma nova venda
+	 * @param d
+	 */
 	public void cadastrarVenda(ControleDados d) {
 		dados = d;
 		listaNomes = new ControleCliente(d).getNomeCliente();
@@ -101,6 +110,11 @@ public class TelaCadastroVenda implements ActionListener, ListSelectionListener 
 		boxBebida.addActionListener(this);
 	}
 
+	/**
+	 * Método para visualizar os dados de uma venda já existente
+	 * @param d
+	 * @param pos
+	 */
 	public void mostrarDadosVenda(ControleDados d, int pos) {
 		dados = d;
 		position = pos;
@@ -159,6 +173,10 @@ public class TelaCadastroVenda implements ActionListener, ListSelectionListener 
 		
 	}
 
+	/**
+	 * Método para editar uma venda já existente no ArrayList de vendas
+	 * @param d
+	 */
 	public void editarVenda(ControleDados d) {
 		dados = d;
 
@@ -207,16 +225,22 @@ public class TelaCadastroVenda implements ActionListener, ListSelectionListener 
 		this.janela.setSize(400, 500);
 		this.janela.setVisible(true);
 
+		deletar.addActionListener(this);
 		confirmar.addActionListener(this);
 		boxCliente.addActionListener(this);
 		boxPastel.addActionListener(this);
 		boxBebida.addActionListener(this);
 	}
 
+	/**
+	 * Método para receber a ação do usuário sobre um botão
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
-	
 
+		/**
+		 * Cria uma nova venda e adiciona ao ArrayList de vendas com os dados inseridos pelo usuário na função cadastrarVenda
+		 */
 		if (src == cadastrar) {
 			qtdPasteis = Integer.parseInt(valorQtdPastel.getText());
 			qtdBebidas = Integer.parseInt(valorQtdBebida.getText());
@@ -254,6 +278,9 @@ public class TelaCadastroVenda implements ActionListener, ListSelectionListener 
 
 		}
 
+		/**
+		 * Sobrepõe a venda selecionada por um novo objeto venda com os dados editados pelo usuário no método editarVenda
+		 */
 		if (src == confirmar) {
 			qtdPasteis = Integer.parseInt(valorQtdPastel.getText());
 			qtdBebidas = Integer.parseInt(valorQtdBebida.getText());
@@ -290,51 +317,84 @@ public class TelaCadastroVenda implements ActionListener, ListSelectionListener 
 			}
 		}
 
+		/**
+		 * Deleta a venda selecionada pelo usuário do ArrayList de vendas
+		 */
 		if (src == deletar) {
 			dados.getVendas().remove(position);
 			janela.dispose();
 		}
 
+		/**
+		 * Abre a janela para editar uma venda
+		 */
 		if (src == editar) {
 			janela.dispose();
 			editarVenda(dados);
 		}
-		
+
+		/**
+		 * Armazena o índice do ComboBox Cliente selecionado pelo usuário
+		 */
 		if (src == boxCliente) {
 			clienteSelecionado = boxCliente.getSelectedIndex();
 		}
 
+		/**
+		 * Armazena o índice do ComboBox Pastel selecionado pelo usuário
+		 */
 		if (src == boxPastel) {
 			pastelSelecionado = boxPastel.getSelectedIndex();
 		}
-		
+
+		/**
+		 * Armazena o índice do ComboBox Bebida selecionado pelo usuário
+		 */
 		if(src == boxBebida) {
 			bebidaSelecionada = boxBebida.getSelectedIndex();
 		}
 	}
 
+	/**
+	 * Método para receber a ação do usuário em uma lista
+	 */
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
-		
+
+		/**
+		 * Ação sobre a lista de clientes
+		 */
 		if (e.getValueIsAdjusting() && src == listaDeClientes) {
 			clienteSelecionado = listaDeClientes.getSelectedIndex();
 		}
 
+		/**
+		 * Ação sobre a lista de pastéis
+		 */
 		if (e.getValueIsAdjusting() && src == listaDePasteis) {
 			pastelSelecionado = listaDePasteis.getSelectedIndex();
 		}
 
+		/**
+		 * Ação sobre a lista de bebidas
+		 */
 		if (e.getValueIsAdjusting() && src == listaDeBebidas) {
 			bebidaSelecionada = listaDeBebidas.getSelectedIndex();
 		}
 	}
 
+	/**
+	 * Método para exibir uma mensagem de erro caso não tenha estoque suficiente de pastéis para concluir a venda
+	 */
 	public void MensagemErroPastel() {
 		JOptionPane.showMessageDialog(null,
 				"Ocorreu um erro ao cadastrar a venda.\n" + "- Não há estoque suficiente do pastel selecionado!\n",
 				null, JOptionPane.ERROR_MESSAGE);
 	}
 
+	/**
+	 * Método para exibir uma mensagem de erro caso não tenha estoque suficiente de bebidas para concluir a venda
+	 */
 	public void MensagemErroBebida() {
 		JOptionPane.showMessageDialog(null,
 				"Ocorreu um erro ao cadastrar a venda.\n" + "- Não há estoque suficiente da bebida selecionada!\n",

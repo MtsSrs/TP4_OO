@@ -12,6 +12,11 @@ import javax.swing.JTextField;
 import control.ControleDados;
 import modelo.Bebida;
 
+/**
+ * Contém os métodos e os elementos da interface gráfica de cadastro, visualização e edição de bebida
+ * @author Mateus Caltabiano e Matheus Soares
+ * @version 1.0 (out 2021)
+ */
 public class TelaCadastroBebida implements ActionListener {
 	private JFrame janela;
 	private JLabel labelNomeBebida = new JLabel("Nome: ");
@@ -37,6 +42,10 @@ public class TelaCadastroBebida implements ActionListener {
 	private static ControleDados dados;
 	private int position;
 
+	/**
+	 * Método para cadastro de uma nova bebida
+	 * @param d dados do banco de dados
+	 */
 	public void cadastrarBebida(ControleDados d) {
 		dados = d;
 
@@ -105,6 +114,11 @@ public class TelaCadastroBebida implements ActionListener {
 
 	}
 
+	/**
+	 * Método para editar uma bebida já existente no ArrayList de bebidas
+	 * @param d dados do banco de dados
+	 * @param pos int da posição selecionada
+	 */
 	public void editarBebida(ControleDados d, int pos) {
 		dados = d;
 		position = pos;
@@ -177,9 +191,15 @@ public class TelaCadastroBebida implements ActionListener {
 
 	}
 
+	/**
+	 * Método para receber a ação do usuário sobre um botão
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 
+		/**
+		 * Cria uma nova bebida e adiciona ao ArrayList de clientes com os dados inseridos pelo usuário no método cadastrarBebida
+		 */
 		if (src == salvar) {
 			try {
 				novaBebida = new Bebida(this.valorNome.getText(), Float.valueOf(this.valorPreco.getText()),
@@ -193,11 +213,17 @@ public class TelaCadastroBebida implements ActionListener {
 			}
 		}
 
+		/**
+		 * Deleta a bebida selecionada pelo usuário do ArrayList de bebidas
+		 */
 		if (src == deletar) {
 			dados.getBebidas().remove(position);
 			janela.dispose();
 		}
 
+		/**
+		 * Sobrepõe a bebida selecionada por um novo objeto bebida com os dados editados pelo usuário no método editarBebida
+		 */
 		if (src == editar) {
 			try {
 				novaBebida = new Bebida(this.valorNome.getText(), Float.valueOf(this.valorPreco.getText()),
@@ -211,6 +237,9 @@ public class TelaCadastroBebida implements ActionListener {
 		}
 	}
 
+	/**
+	 * Método para exibir uma mensagem de erro caso algum dado tenha sido digitado errado
+	 */
 	public void MensagemErroFormato() {
 		JOptionPane.showMessageDialog(null,
 				"Ocorreu um erro ao cadastrar o pastel.\n" + "- Verifique se Id foi utilizado numeros inteiros\n"

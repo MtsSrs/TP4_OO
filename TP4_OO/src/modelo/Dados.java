@@ -2,6 +2,11 @@ package modelo;
 
 import java.util.ArrayList;
 
+/**
+ * Possui o banco de dados e os métodos para retirar os dados
+ * @author Mateus Caltabiano e Matheus Soares
+ * @version 1.0 (Out 2021)
+ */
 public class Dados {
     public ArrayList<Cliente> clientes = new ArrayList<>();
     public ArrayList<Bebida> bebidas = new ArrayList<>();
@@ -40,6 +45,10 @@ public class Dados {
     public void setVendas(ArrayList<Venda> vendas) {
         this.vendas = vendas;
     }
+
+    /**
+     * Contém os dados pré-registrados para proporcionar um melhor teste do programa
+     */
 public void bancoDados() {
 
     Cliente mateus = new Cliente("Mateus", "Brasília", "12358479651", new Telefone("61", "123456789"));

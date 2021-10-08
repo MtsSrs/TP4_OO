@@ -1,12 +1,22 @@
 package modelo;
 
-
+/**
+ * Contém os parâmetros para o objeto Estabelecimento
+ * @author Matheus Soares e Mateus Caltabiano
+ * @version 1.0 (Out 2021)
+ */
 public class Estabelecimento {
 
 	private String enderecoEstabelecimento;
 	private String cepEstabelecimento;
 	private Telefone telefoneEstabelecimento;
 
+	/**
+	 * Contstrutor para instanciação do objeto Estabelecimento
+	 * @param enderecoEstabelecimento String para o endereço do estabelecimento
+	 * @param cepEstabelecimento String para o CEP do estabelecimento
+	 * @param telefoneEstabelecimento Telefone para o telefone do estabelecimento
+	 */
 	public Estabelecimento(String enderecoEstabelecimento, String cepEstabelecimento,
 			Telefone telefoneEstabelecimento) {
 		this.enderecoEstabelecimento = enderecoEstabelecimento;

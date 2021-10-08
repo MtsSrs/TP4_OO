@@ -1,6 +1,10 @@
 package modelo;
 
-
+/**
+ * Contém os parâmetros para o objeto Venda
+ * @author Matheus Soares e Mateus Caltabiano
+ * @version 1.0 (Out 2021)
+ */
 public class Venda {
 
 	private int idVenda = 0;
@@ -10,6 +14,14 @@ public class Venda {
 	private Pastel pastelVenda;
 	private Bebida bebidaVenda;
 
+	/**
+	 * Contstrutor para instanciação do objeto Venda
+	 * @param idVenda int para o ID da venda
+	 * @param clienteVenda Cliente para o cliente da venda
+	 * @param precoVenda float para o valor total da venda
+	 * @param pastelVenda Pastel para o pastel da venda
+	 * @param bebidaVenda Bebida para a bebida da venda
+	 */
 	public Venda(int idVenda, Cliente clienteVenda, float precoVenda, Pastel pastelVenda, Bebida bebidaVenda) {
 		this.idVenda = idVenda;
 		this.clienteVenda = clienteVenda;
@@ -58,14 +70,7 @@ public class Venda {
 	public void setBebidaVenda(Bebida bebidaVenda) {
 		this.bebidaVenda = bebidaVenda;
 	}
-
-	@Override
-	public String toString() {
-		return "\nID da venda = " + idVenda + "\nCliente = " + clienteVenda.getNomeCliente()
-				+ "\nPreço total = " + precoVenda + " reais";
-	}
-
-	public Estoque getEstoqueVenda() {
+public Estoque getEstoqueVenda() {
 		return estoqueVenda;
 	}
 
@@ -73,4 +78,10 @@ public class Venda {
 		this.estoqueVenda = estoqueVenda;
 	}
 
+	@Override
+	public String toString() {
+		return "\nID da venda = " + idVenda + "\nCliente = " + clienteVenda.getNomeCliente()
+				+ "\nPreço total = " + precoVenda + " reais";
+	}
+	
 }

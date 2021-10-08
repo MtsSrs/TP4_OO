@@ -15,6 +15,11 @@ import javax.swing.event.ListSelectionListener;
 import control.ControleBebida;
 import control.ControleDados;
 
+/**
+ * Contém os métodos e os elementos da interface gráfica de bebida
+ * @author Mateus Caltabiano e Matheus Soares
+ * @version 1.0 (Out 2021)
+ */
 public class TelaBebida implements ActionListener, ListSelectionListener {
 	private JFrame janela = new JFrame("Bebidas");
 	private JLabel titulo = new JLabel("Lista de bebidas");
@@ -24,6 +29,10 @@ public class TelaBebida implements ActionListener, ListSelectionListener {
 	private String[] listaNomesBebidas = new String[50];
 	private static ControleDados dados;
 
+	/**
+	 * Método da interface gráfica ao selecionar Bebida no menu principal
+	 * @param d dados do banco de dados
+	 */
 	public void TelaMostraBebida(ControleDados d) {
 		dados = d;
 		listaNomesBebidas = new ControleBebida(d).getNomeBebida();
@@ -55,22 +64,38 @@ public class TelaBebida implements ActionListener, ListSelectionListener {
 		listaDeBebidas.addListSelectionListener(this);
 
 	}
-
+	
+	/**
+	 * Método para receber a ação do usuário sobre um botão
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 
+		/**
+		 * Abre a tela para cadastro de bebida
+		 */
 		if (src == cadastrar) {
 			new TelaCadastroBebida().cadastrarBebida(dados);
 		}
+
+		/**
+		 * Atualiza a lista de bebidas
+		 */
 		if (src == refresh) {
 			listaDeBebidas.setListData(new ControleBebida(dados).getNomeBebida());
 			listaDeBebidas.updateUI();
 		}
 	}
 
+	/**
+	 * Método para receber a ação do usuário em uma lista
+	 */
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 
+		/**
+		 * Ação sobre a lista de bebidas
+		 */
 		if (e.getValueIsAdjusting() && src == listaDeBebidas) {
 		new TelaCadastroBebida().editarBebida(dados, listaDeBebidas.getSelectedIndex());
 		}

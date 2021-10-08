@@ -9,6 +9,11 @@ import javax.swing.event.ListSelectionListener;
 import control.ControleDados;
 import control.ControleVenda;
 
+/**
+ * Contém os métodos e os elementos da interface gráfica de venda
+ * @author Matheus Soares e Mateus Caltabiano
+ * @version 1.0 (Out 2021)
+ */
 public class TelaVenda implements ActionListener, ListSelectionListener {
 	private JFrame janela = new JFrame("Janela");
 	private JLabel titulo = new JLabel("Lista de vendas");
@@ -17,7 +22,11 @@ public class TelaVenda implements ActionListener, ListSelectionListener {
 	private JButton refresh = new JButton("Refresh");
 	private String[] listaVendas = new String[50];
 	private static ControleDados dados;
-	
+
+	/**
+	 * Método da interface gráfica ao selecionar Venda no menu principal
+	 * @param d
+	 */
 	public void TelaMostraVenda(ControleDados d) {
 		dados = d;
 		listaVendas = new ControleVenda(d).getClienteVenda();
@@ -48,23 +57,38 @@ public class TelaVenda implements ActionListener, ListSelectionListener {
 		refresh.addActionListener(this);
 		listaDeVendas.addListSelectionListener(this);
 	}
-	
+
+	/**
+	 * Método para receber a ação do usuário sobre um botão
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 
+		/**
+		 * Abre a tela para cadastro de venda
+		 */
 		if (src == cadastrar) {
 			new TelaCadastroVenda().cadastrarVenda(dados);
 		}
 
+		/**
+		 * Atualiza a lista de vendas
+		 */
 		if (src == refresh) {
 			listaDeVendas.setListData(new ControleVenda(dados).getClienteVenda());
 			listaDeVendas.updateUI();
 		}
 	}
-	
+
+	/**
+	 * Método para receber a ação do usuário em uma lista
+	 */
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 
+		/**
+		 * Ação sobre a lista de vendas
+		 */
 		if (e.getValueIsAdjusting() && src == listaDeVendas) {
 			new TelaCadastroVenda().mostrarDadosVenda(dados, listaDeVendas.getSelectedIndex());
 		}

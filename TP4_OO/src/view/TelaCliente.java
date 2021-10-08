@@ -9,6 +9,11 @@ import javax.swing.event.ListSelectionListener;
 import control.ControleCliente;
 import control.ControleDados;
 
+/**
+ * Contém os métodos e os elementos da interface gráfica de cadastro, visualização e edição de cliente
+ * @author Mateus Caltabiano e Matheus Soares
+ * @version 1.0 (Out 2021)
+ */
 public class TelaCliente implements ActionListener, ListSelectionListener {
 	private JFrame janela = new JFrame("Cliente");
 	private JLabel titulo = new JLabel("Lista de clientes");
@@ -18,6 +23,10 @@ public class TelaCliente implements ActionListener, ListSelectionListener {
 	private String[] listaNomes = new String[50];
 	private static ControleDados dados;
 
+	/**
+	 * Método da interface gráfica ao selecionar Cliente no menu principal
+	 * @param d
+	 */
 	public void Tela(ControleDados d) {
 		dados = d;
 		listaNomes = new ControleCliente(d).getNomeCliente();
@@ -51,22 +60,37 @@ public class TelaCliente implements ActionListener, ListSelectionListener {
 		
 	}
 
+	/**
+	 * Método para receber a ação do usuário sobre um botão
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 
+		/**
+		 * Abre a tela para cadastro de cliente
+		 */
 		if (src == cadastrar) {
 			new TelaCadastroCliente().cadastrarCliente(dados);
 		}
 
+		/**
+		 * Atualiza a lista de clientes
+		 */
 		if (src == refresh) {
 			listaDeClientes.setListData(new ControleCliente(dados).getNomeCliente());
 			listaDeClientes.updateUI();
 		}
 	}
 
+	/**
+	 * Método para receber a ação do usuário em uma lista
+	 */
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 
+		/**
+		 * Ação sobre a lista de clientes
+		 */
 		if (e.getValueIsAdjusting() && src == listaDeClientes) {
 			new TelaCadastroCliente().editarCliente(dados, listaDeClientes.getSelectedIndex());
 		}

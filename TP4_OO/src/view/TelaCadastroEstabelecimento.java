@@ -14,6 +14,11 @@ import modelo.Estabelecimento;
 import modelo.Telefone;
 import modelo.Valida;
 
+/**
+ * Contém os métodos e os elementos da interface gráfica de cadastro, visualização e edição de estabelecimento
+ * @author Mateus Caltabiano e Matheus Soares
+ * @version 1.0 (Out 2021)
+ */
 public class TelaCadastroEstabelecimento implements ActionListener {
 	private JFrame janela;
 	private JLabel labelEndereco = new JLabel("Endereço: ");
@@ -31,6 +36,10 @@ public class TelaCadastroEstabelecimento implements ActionListener {
 	private int position;
 	private Valida v = new Valida();
 
+    /**
+	 * Método para cadastro de um novo estabelecimento
+     * @param d dados do banco de dados
+     */
 	public void cadastrarEstabelecimento(ControleDados d) {
 		dados = d;
 
@@ -69,7 +78,12 @@ public class TelaCadastroEstabelecimento implements ActionListener {
 
 		salvar.addActionListener(this);
 	}
-
+	 
+    /**
+	 * Método para editar um estabelecimento já existente no ArrayList de estabelecimentos
+     * @param d dados do banco de dados
+     * @param pos int da posição selecionada
+     */
 	public void editarEstabelecimento(ControleDados d, int pos) {
 		dados = d;
 		position = pos;
@@ -113,9 +127,15 @@ public class TelaCadastroEstabelecimento implements ActionListener {
 
 	}
 
+	/**
+	 * Método para receber a ação do usuário sobre um botão
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 
+        /**
+		 * Cria um novo estabelecimento e adiciona ao ArrayList de estabelecimentos com os dados inseridos pelo usuário na função cadastrarEstabelecimento
+         */
 		if (src == salvar) {
 			if (v.validaCEP(this.valorCep.getText()) && v.validaDDD(this.valorDdd.getText())
 					&& v.validaTel(this.valorNumero.getText()) == true) {
@@ -136,11 +156,17 @@ public class TelaCadastroEstabelecimento implements ActionListener {
 			}
 		}
 
+        /**
+		 * Deleta o estabelecimento selecionado pelo usuário do ArrayList de estabelecimento
+         */
 		if (src == deletar) {
 			dados.getEstabelecimentos().remove(position);
 			janela.dispose();
 		}
 
+        /**
+		 * Sobrepõe o estabelecimento selecionado por um novo objeto estabelecimento com os dados editados pelo usuário no método editarEstabelecimento
+         */
 		if (src == editar) {
 			if (v.validaCEP(this.valorCep.getText()) && v.validaDDD(this.valorDdd.getText())
 					&& v.validaTel(this.valorNumero.getText()) == true) {
@@ -162,6 +188,9 @@ public class TelaCadastroEstabelecimento implements ActionListener {
 		}
 	}
 
+	/**
+	 * Método para exibir uma mensagem de erro caso algum dado não tenha passado na validação
+	 */
 	public void MensagemErroFormatoDDD() {
 		JOptionPane.showMessageDialog(
 				null, "Ocorreu um erro ao cadastrar o DDD do estabelecimento.\n"
@@ -170,6 +199,9 @@ public class TelaCadastroEstabelecimento implements ActionListener {
 				null, JOptionPane.ERROR_MESSAGE);
 	}
 
+	/**
+	 * Método para exibir uma mensagem de erro caso algum dado não tenha passado na validação
+	 */
 	public void MensagemErroFormatoTEL() {
 		JOptionPane.showMessageDialog(null,
 				"Ocorreu um erro ao cadastrar o Telefone do estabelecimento.\n"
@@ -179,6 +211,9 @@ public class TelaCadastroEstabelecimento implements ActionListener {
 				null, JOptionPane.ERROR_MESSAGE);
 	}
 
+	/**
+	 * Método para exibir uma mensagem de erro caso algum dado não tenha passado na validação
+	 */
 	public void MensagemErroFormatoCEP() {
 		JOptionPane.showMessageDialog(
 				null, "Ocorreu um erro ao cadastrar o CEP do estabelecimento.\n"

@@ -16,13 +16,15 @@ import javax.swing.event.ListSelectionListener;
 import control.ControleDados;
 import control.ControlePastel;
 
-
+/**
+ * Contém os métodos e os elementos da interface gráfica para adicionar e filtrar Estoque
+ * @author Matheus Soares e Mateus Caltabiano
+ * @version 1.0 (Out 2021)
+ */
 public class TelaCadastroEstoque implements ActionListener, ListSelectionListener {
 	private JFrame janela;
 	private JLabel labelNomeProduto = new JLabel("Nome: ");
-
 	private JLabel labelPrecoProduto = new JLabel("Preco(R$): ");
-
 	private JLabel labelQtdProduto = new JLabel("Quantidade(Un.): ");
 	private JTextField valorQtdProduto;
 	private JButton adicionarPastel = new JButton("Adicionar");
@@ -38,6 +40,11 @@ public class TelaCadastroEstoque implements ActionListener, ListSelectionListene
 	private int setQtd;
 	private int selecao;
 
+	/**
+	 * Método para exibir a lista de pasteis no estoque
+	 * @param d dados do banco de dados
+	 * @param pos int da posição selecionada
+	 */
 	public void estoqueMostraPastel(ControleDados d, int pos) {
 		dados = d;
 		position = pos;
@@ -79,6 +86,11 @@ public class TelaCadastroEstoque implements ActionListener, ListSelectionListene
 
 	}
 
+	/**
+	 * Método para exibir a lista de bebidas no estoque
+	 * @param d dados do banco de dados
+	 * @param pos int da posição selecionada
+	 */
 	public void estoqueMostraBebida(ControleDados d, int pos) {
 		dados = d;
 		position = pos;
@@ -119,6 +131,12 @@ public class TelaCadastroEstoque implements ActionListener, ListSelectionListene
 		adicionarBebida.addActionListener(this);
 	}
 
+	/**
+	 * Abre uma nova janela para alterar o estoque do produto selecionado
+	 * @param d dados do banco de dados
+	 * @param pos int da posição selecionada
+	 * @param selecaoProduto int do índice do produto
+	 */
 	public void adicionaEstoque(ControleDados d, int pos, int selecaoProduto) {
 		dados = d;
 		position = pos;
@@ -169,6 +187,10 @@ public class TelaCadastroEstoque implements ActionListener, ListSelectionListene
 		}
 	}
 
+	/**
+	 * Abre uma nova janela mostrando apenas os pastéis de sabor Salgado
+	 * @param d dados do banco de dados
+	 */
 	public void mostraPastelSalgado(ControleDados d) {
 		dados = d;
 		listaDeNomesDeSaborPasteis = new ControlePastel(d).getSaborPastelSalgado();
@@ -194,6 +216,10 @@ public class TelaCadastroEstoque implements ActionListener, ListSelectionListene
 				
 	}
 
+	/**
+	 * Abre uma nova janela mostrando apenas os pastéis de sabor Doce
+	 * @param d dados do banco de dados
+	 */
 	public void mostraPastelDoce(ControleDados d) {
 		dados = d;
 		listaDeNomesDeSaborPasteis = new ControlePastel(d).getSaborPastelDoce();
@@ -220,32 +246,56 @@ public class TelaCadastroEstoque implements ActionListener, ListSelectionListene
 		
 	}
 
+	/**
+	 * Método para receber a ação do usuário sobre um botão
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
+
+		/**
+		 * Abre a tela para adicionar estoque do pastel selecionado
+		 */
 		if (src == adicionarPastel) {
 			new TelaCadastroEstoque().adicionaEstoque(dados, position, 1);
 			janela.dispose();
 		}
+
+		/**
+		 * Zera a quantidade de estoque do pastel selecionado
+		 */
 		if (src == zerarPastel) {
 			dados.getPasteis().get(position).setQtdPastel(0);
 			janela.dispose();
 		}
+
+		/**
+		 * Adiciona a quantidade digitada pelo usuário ao estoque do pastel selecionado
+		 */
 		if (src == confirmarPastel) {
 			setQtd = Integer.parseInt(valorQtdProduto.getText());
 			dados.getPasteis().get(position).setQtdPastel(setQtd + dados.getPasteis().get(position).getQtdPastel());
 			janela.dispose();
 		}
 
+		/**
+		 * Abre a tela para adicionar estoque da bebida selecionada
+		 */
 		if (src == adicionarBebida) {
 			new TelaCadastroEstoque().adicionaEstoque(dados, position, 2);
 			janela.dispose();
 		}
 
+		/**
+		 * Zera a quantidade de estoque da bebida selecionada
+		 */
 		if (src == zerarBebida) {
 			dados.getBebidas().get(position).setQtdBebida(0);
 			janela.dispose();
 		}
 
+		/**
+		 * Adiciona a quantidade digitada pelo usuário ao estoque da bebida selecionada
+		 */
 		if (src == confirmarBebida) {
 			setQtd = Integer.parseInt(valorQtdProduto.getText());
 			dados.getBebidas().get(position).setQtdBebida(setQtd + dados.getBebidas().get(position).getQtdBebida());
@@ -253,10 +303,15 @@ public class TelaCadastroEstoque implements ActionListener, ListSelectionListene
 		}
 	}
 
-
+	/**
+	 * Método para receber a ação do usuário em uma lista
+	 */
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 
+		/**
+		 * Ação sobre a lista de pastéis
+		 */
 		if (e.getValueIsAdjusting() && src == listaDePasteis) {
 			new TelaCadastroEstoque().estoqueMostraPastel(dados, listaDePasteis.getSelectedIndex());
 		}

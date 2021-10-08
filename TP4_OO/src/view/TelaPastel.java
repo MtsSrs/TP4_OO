@@ -15,6 +15,11 @@ import javax.swing.event.ListSelectionListener;
 import control.ControleDados;
 import control.ControlePastel;
 
+/**
+ * Contém os métodos e os elementos da interface gráfica de pastel
+ * @author Mateus Caltabiano e Matheus Soares
+ * @version 1.0 (Out 2021)
+ */
 public class TelaPastel implements ActionListener, ListSelectionListener {
 	private JFrame janela = new JFrame("Pasteis");
 	private JLabel titulo = new JLabel("Lista de pasteis");
@@ -24,6 +29,10 @@ public class TelaPastel implements ActionListener, ListSelectionListener {
 	private String[] listaNomesPasteis = new String[50];
 	private static ControleDados dados;
 
+	/**
+	 * Método da interface gráfica ao selecionar Pastel no menu principal
+	 * @param d
+	 */
 	public void TelaMostraPastel(ControleDados d) {
 		dados = d;
 		listaNomesPasteis = new ControlePastel(d).getNomePastel();
@@ -56,22 +65,37 @@ public class TelaPastel implements ActionListener, ListSelectionListener {
 
 	}
 
+	/**
+	 * Método para receber a ação do usuário sobre um botão
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 
+		/**
+		 * Abre a tela para cadastro de pastel
+		 */
 		if (src == cadastrar) {
 			new TelaCadastroPastel().cadastrarPastel(dados);
 		}
+
+		/**
+		 * Atualiza a lista de pastéis
+		 */
 		if (src == refresh) {
 			listaDePasteis.setListData(new ControlePastel(dados).getNomePastel());
 			listaDePasteis.updateUI();
-
 		}
 	}
 
+	/**
+	 * Ação sobre a lista de pastéis
+	 */
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 
+		/**
+		 * Ação sobre a lista de pastéis
+		 */
 		if (e.getValueIsAdjusting() && src == listaDePasteis) {
 			new TelaCadastroPastel().editarPastel(dados, listaDePasteis.getSelectedIndex());
 		}

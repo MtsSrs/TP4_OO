@@ -16,6 +16,11 @@ import control.ControleBebida;
 import control.ControleDados;
 import control.ControlePastel;
 
+/**
+ * Contém os métodos e os elementos da interface gráfica de estoque
+ * @author Matheus Soares e Mateus Caltabiano
+ * @version 1.0 (Out 2021)
+ */
 public class TelaEstoque implements ActionListener, ListSelectionListener {
 	private JFrame janela = new JFrame("Estoque");
 	private JLabel titulo = new JLabel("Lista de Produtos no estoque");
@@ -28,6 +33,10 @@ public class TelaEstoque implements ActionListener, ListSelectionListener {
 	private String[] listaDeNomesDeProdutosBebidas = new String[50];
 	private static ControleDados dados;
 
+	/**
+	 * Método da interface gráfica ao selecionar Estoque no menu principal
+	 * @param d
+	 */
 	public void TelaMostraEstoque(ControleDados d) {
 		dados = d;
 		
@@ -85,17 +94,29 @@ public class TelaEstoque implements ActionListener, ListSelectionListener {
 
 	}
 
+	/**
+	 * Método para receber a ação do usuário sobre um botão
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 
+		/**
+		 * Abre a tela para abrir a janela com a lista de pastéis salgados
+		 */
 		if (src == salgado) {
 		new TelaCadastroEstoque().mostraPastelSalgado(dados);
 		}
-		
+
+		/**
+		 * Abre a tela para abrir a janela com a lista de pastéis doces
+		 */
 		if (src == doce) {
 		new TelaCadastroEstoque().mostraPastelDoce(dados);
 		}
-		
+
+		/**
+		 * Atualiza as listas de pastéis
+		 */
 		if (src == refresh) {
 			listaDePasteis.setListData(new ControlePastel(dados).getNomePastel());
 			listaDePasteis.updateUI();
@@ -104,12 +125,22 @@ public class TelaEstoque implements ActionListener, ListSelectionListener {
 		}
 	}
 
+	/**
+	 * Método para receber a ação do usuário em uma lista
+	 */
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 
+		/**
+		 * Ação sobre a lista de pastéis
+		 */
 		if (e.getValueIsAdjusting() && src == listaDePasteis) {
 			new TelaCadastroEstoque().estoqueMostraPastel(dados, listaDePasteis.getSelectedIndex());
 		}
+
+		/**
+		 * Ação sobre a lista de bebidas
+		 */
 		if (e.getValueIsAdjusting() && src == listaDeBebidas) {
 			new TelaCadastroEstoque().estoqueMostraBebida(dados, listaDeBebidas.getSelectedIndex());
 		}

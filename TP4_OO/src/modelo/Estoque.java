@@ -1,11 +1,20 @@
 package modelo;
 
-
+/**
+ * Contém os parâmetros para o objeto Estoque
+ * @author Mateus Caltabiano e Matheus Soares
+ * @version 1.0 (Out 2021)
+ */
 public class Estoque {
 
 	private Produto produto[];
 	private int quantidade;
 
+	/**
+	 * Construtor para instanciação do objeto Estoque
+	 * @param produto Produto para o produto do estoque
+	 * @param quantidade int para a quantidade do produto em estoque 
+	 */
 	public Estoque(Produto[] produto, int quantidade) {
 		this.produto = produto;
 		this.quantidade = quantidade;

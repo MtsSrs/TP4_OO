@@ -14,6 +14,11 @@ import modelo.Cliente;
 import modelo.Telefone;
 import modelo.Valida;
 
+/**
+ * Contém os métodos e os elementos da interface gráfica de cadastro, visualização e edição de cliente
+ * @author Matheus Soares e Mateus Caltabiano
+ * @version 1.0 (Out 2021)
+ */
 public class TelaCadastroCliente implements ActionListener {
 	private Valida v = new Valida();
 	private JFrame janela;
@@ -33,6 +38,10 @@ public class TelaCadastroCliente implements ActionListener {
 	private JButton deletar = new JButton("Deletar");
 	private int position;
 
+	/**
+	 * Método para cadastro de um novo cliente
+	 * @param d dados do banco de dados
+	 */
 	public void cadastrarCliente(ControleDados d) {
 		dados = d;
 
@@ -74,11 +83,13 @@ public class TelaCadastroCliente implements ActionListener {
 		this.janela.setVisible(true);
 
 		salvar.addActionListener(this);
-
-		novoCliente = new Cliente(this.valorNome.getText(), this.valorEndereco.getText(), this.valorCpf.getText(),
-				new Telefone(this.valorDdd.getText(), this.valorNumero.getText()));
 	}
 
+	/**
+	 * Método para editar um cliente já existente no ArrayList de clientes
+	 * @param d dados do banco de dados
+	 * @param pos int da posição selecionada
+	 */
 	public void editarCliente(ControleDados d, int pos) {
 		dados = d;
 		position = pos;
@@ -127,9 +138,15 @@ public class TelaCadastroCliente implements ActionListener {
 
 	}
 
+	/**
+	 * Método para receber a ação do usuário sobre um botão
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 
+		/**
+		 * Cria um novo cliente e adiciona ao ArrayList de clientes com os dados inseridos pelo usuário na função cadastrarCliente
+		 */
 		if (src == salvar) {
 			if (v.validaCPF(this.valorCpf.getText()) && v.validaDDD(this.valorDdd.getText())
 					&& v.validaTel(this.valorNumero.getText()) == true) {
@@ -149,12 +166,18 @@ public class TelaCadastroCliente implements ActionListener {
 				}
 			}
 		}
-
+		
+		/**
+		 * Deleta o cliente selecionado pelo usuário do ArrayList de clientes
+		 */
 		if (src == deletar) {
 			dados.getClientes().remove(position);
 			janela.dispose();
 		}
 
+		/**
+		 * Sobrepõe o cliente selecionado por um novo objeto cliente com os dados editados pelo usuário no método editarCliente
+		 */
 		if (src == editar) {
 			if (v.validaCPF(this.valorCpf.getText()) && v.validaDDD(this.valorDdd.getText())
 					&& v.validaTel(this.valorNumero.getText()) == true) {
@@ -176,6 +199,9 @@ public class TelaCadastroCliente implements ActionListener {
 		}
 	}
 
+	/**
+	 * Método para exibir uma mensagem de erro caso algum dado não tenha passado na validação
+	 */
 	public void MensagemErroFormatoCPF() {
 		JOptionPane.showMessageDialog(null, "Ocorreu um erro ao cadastrar o CPF do cliente.\n"
 				+ "#Verifique se o CPF possui 11 dígitos\n"
@@ -183,11 +209,17 @@ public class TelaCadastroCliente implements ActionListener {
 				+ "#Tente novamente.", null, JOptionPane.ERROR_MESSAGE);
 	}
 
+	/**
+	 * Método para exibir uma mensagem de erro caso algum dado não tenha passado na validação
+	 */
 	public void MensagemErroFormatoDDD() {
 		JOptionPane.showMessageDialog(null, "Ocorreu um erro ao cadastrar o DDD do cliente.\n"
 				+ "#O DDD deve possuir 3 ou 2 dígitos\n" + "#Tente novamente.", null, JOptionPane.ERROR_MESSAGE);
 	}
 
+	/**
+	 * Método para exibir uma mensagem de erro caso algum dado não tenha passado na validação
+	 */
 	public void MensagemErroFormatoTEL() {
 		JOptionPane.showMessageDialog(null,
 				"Ocorreu um erro ao cadastrar o Telefone do cliente.\n" + "#O telefone deve possuir apenas 9 dígitos\n"
