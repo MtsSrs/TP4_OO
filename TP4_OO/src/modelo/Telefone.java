@@ -28,18 +28,6 @@ public class Telefone {
         this.numero = numero;
     }
 
-//    public static Telefone cadastrarTelefone(int i) {
-//
-//        System.out.println("Digite o DDD do telefone - " + (i+1) + " - (apenas números): " );
-//        String ddd = Main.sc.nextLine();
-//
-//        System.out.println("Digite o número do telefone " + (i+1) + " - (apenas números): " );
-//        String numero = Main.sc.nextLine();
-//
-//        Telefone telefone = new Telefone(ddd, numero);
-//
-//        return telefone;
-//    }
 
     @Override
     public String toString() {

@@ -42,11 +42,11 @@ public class Dados {
     }
 public void bancoDados() {
 
-    Cliente mateus = new Cliente("Mateus", "Brasília", "11111111111", new Telefone("61", "123456789"));
-    Cliente matheus = new Cliente("Matheus", "Valparaíso", "22222222222", new Telefone("61", "987654321"));
-    Cliente mariana = new Cliente("Mariana", "Asa norte", "33333333333", new Telefone("38", "956555444"));
-    Cliente alcina = new Cliente("Alcina", "Céu Azul", "44444444444", new Telefone("61", "5486231974"));
-    Cliente mauro = new Cliente("Mauro", "Lago Sul", "55555555555", new Telefone("61", "246781320"));
+    Cliente mateus = new Cliente("Mateus", "Brasília", "12358479651", new Telefone("61", "123456789"));
+    Cliente matheus = new Cliente("Matheus", "Valparaíso", "74589652147", new Telefone("61", "987654321"));
+    Cliente mariana = new Cliente("Mariana", "Asa norte", "10287496321", new Telefone("38", "956555444"));
+    Cliente alcina = new Cliente("Alcina", "Céu Azul", "01284579541", new Telefone("61", "5486231974"));
+    Cliente mauro = new Cliente("Mauro", "Lago Sul", "45126874562", new Telefone("61", "246781320"));
 
     Pastel queijo = new Pastel("Pastel de queijo pequeno", (float) 13.99, 1, "Pastel recheado com queijo", "215",
             "Salgado", "10", 40);
